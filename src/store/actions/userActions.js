@@ -2,7 +2,6 @@ import { userConstants } from './userActionTypes';
 import { userService } from './userService';
 import history from '../../utils/history';
 import { setAuthenticationHeader } from '../../utils/authenticate';
-import { Action } from 'history';
 
 export const userActions = {
     login,
@@ -22,8 +21,7 @@ function login(user) {
                     dispatch(success());
                     history.push('/dashboard');
                 } else if (result.data.login === false) {
-                    let error = "Username or password is incorrect."
-                    dispatch(failure(error))
+                    dispatch(failure(result.data.message))
                 }
             },
             error => {
@@ -38,9 +36,11 @@ function login(user) {
 
 function register(user) {
     return dispatch => {
+        console.log("action")
         userService.register(user)
         .then(
             result => {
+                console.log(result)
                 if (result.data.userAdded === true) {
                     const token = result.data.token;
                     localStorage.setItem('jsonwebtoken', token);
@@ -48,8 +48,7 @@ function register(user) {
                     dispatch(success());
                     history.push('/dashboard')
                 } else if (result.data.userAdded === false) {
-                    let error = "username exists."
-                    dispatch(failure(error))
+                    dispatch(failure(result.data.message))
                 }
             },
             error => {

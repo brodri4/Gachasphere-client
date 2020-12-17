@@ -1,2 +1,2 @@
-import createHistory from 'history/createHashHistory';
-export default createHistory();
+import createHashHistory from 'history/createHashHistory';
+export default createHashHistory();
