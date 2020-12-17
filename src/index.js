@@ -15,6 +15,7 @@ import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet';
 import thunk from 'redux-thunk';
+import BaseLayout from './components/BaseLayout';
 
 const persistConfig = {
   key: 'root',
@@ -32,8 +33,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(persistedReducer, composeEnhancers(applyMiddleware(thunk)));
 const persistor = persistStore(store);
 
-// index route leads to login page, assuming using app component for it
-// <Route exact path="/register" component={Register} />
+// App component = login page
 // <Route exact path="/dashboard" component={requireAuth(Dashboard)} />
 
 ReactDOM.render(
@@ -41,11 +41,13 @@ ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <HashRouter>
-          <Switch>
-            <Route exact path="/index" component={App} />
-            <Route exact path="/register" component={RegisterPage} />
-            <Redirect exact from='/' to='/index' />
-          </Switch>
+          <BaseLayout>
+            <Switch>
+              <Route exact path="/index" component={App} />
+              <Route exact path="/register" component={RegisterPage} />
+              <Redirect exact from='/' to='/index' />
+            </Switch>
+          </BaseLayout>
         </HashRouter>
       </PersistGate>
     </Provider>
