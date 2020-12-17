@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import RegisterPage from './components/RegisterPage';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
@@ -40,6 +41,7 @@ ReactDOM.render(
         <HashRouter>
           <Switch>
             <Route exact path="/index" component={App} />
+            <Route exact path="/register" component={RegisterPage} />
             <Redirect exact from='/' to='/index' />
           </Switch>
         </HashRouter>

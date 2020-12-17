@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { userActions } from './store/actions/userActions';
 
-function App() {
+function App(props) {
+  const [user, setUser] = useState({});
+
+  const handleOnChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  const handleOnClick = () => {
+    props.login(user)
+  }
+
+  useEffect(() => {
+    userActions.logout()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <label>Username</label>
+      <input onChange={handleOnChange} type="text" name="username"></input>
+      <label>Password</label>
+      <input onChange={handleOnChange} type="text" name="password"></input>
+      <button className="primary-button" onClick={handleOnClick}>Login</button>
     </div>
-  );
+  )
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return { 
+    login: (user) => dispatch(userActions.login(user))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);
