@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-export default function(ComposedComponent) {
+export default function foo(ComposedComponent) {
 
     class Authenticate extends Component {
         constructor(props) {
