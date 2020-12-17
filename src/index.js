@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Test from './test';
 import RegisterPage from './components/RegisterPage';
 
 import reportWebVitals from './reportWebVitals';
@@ -16,6 +15,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet';
 import thunk from 'redux-thunk';
 import BaseLayout from './components/BaseLayout';
+
+import AppNavBar from './components/AppNavBar';
+import Footer from './components/Footer';
 
 const persistConfig = {
   key: 'root',
