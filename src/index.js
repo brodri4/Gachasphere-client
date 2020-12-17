@@ -16,9 +16,6 @@ import hardSet from 'redux-persist/lib/stateReconciler/hardSet';
 import thunk from 'redux-thunk';
 import BaseLayout from './components/BaseLayout';
 
-import AppNavBar from './components/AppNavBar';
-import Footer from './components/Footer';
-
 const persistConfig = {
   key: 'root',
   storage,
