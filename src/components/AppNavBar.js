@@ -14,6 +14,7 @@ import NavBar from 'react-bootstrap/NavBar';
 import Profile from '../pages/Profile';
 import MyList from '../pages/MyList';
 import Games from '../pages/Games';
+import Navbar from 'react-bootstrap/NavBar';
 
 
 class AppNavBar extends React.Component {
@@ -24,6 +25,7 @@ class AppNavBar extends React.Component {
                 <Container className='p-0' fluid={true}>
                     <NavBar className='border-bottom' collapseOnSelect bg='transparent' expand='sm'>
                         <NavBar.Brand>GachaSphere</NavBar.Brand>
+                        <Navbar.Toggle className='border-bottom' aria-controls='navbar-toggle' />
                         <NavBar.Collapse id='responsive-navbar-nav' >
                             <Nav className='ml-auto'>
                                 {this.props.isAuth ? null : <Nav.Link eventKey='1' as={Link} to='/games/all'>Games</Nav.Link>}
