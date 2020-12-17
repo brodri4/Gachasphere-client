@@ -8,7 +8,7 @@ export const userService = {
 
 function login(user) {
 
-    return axios.post('http://localhost:8080/login', {
+    return axios.post('http://localhost:8080/user/login', {
         username: user.username,
         password: user.password
     })
@@ -18,7 +18,7 @@ function register(user) {
 
     console.log("service")
 
-    return axios.post('http://localhost:8080/register', {
+    return axios.post('http://localhost:8080/user/register', {
         username: user.username,
         password: user.password,
         email: user.email
