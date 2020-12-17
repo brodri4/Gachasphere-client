@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Test from './test';
 import RegisterPage from './components/RegisterPage';
 
 import reportWebVitals from './reportWebVitals';
@@ -15,6 +14,9 @@ import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet';
 import thunk from 'redux-thunk';
+
+import AppNavBar from './components/AppNavBar';
+import Footer from './components/Footer';
 
 const persistConfig = {
   key: 'root',
@@ -41,11 +43,13 @@ ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <HashRouter>
+          <AppNavBar />
           <Switch>
             <Route exact path="/index" component={App} />
             <Route exact path="/register" component={RegisterPage} />
             <Redirect exact from='/' to='/index' />
           </Switch>
+          <Footer />
         </HashRouter>
       </PersistGate>
     </Provider>

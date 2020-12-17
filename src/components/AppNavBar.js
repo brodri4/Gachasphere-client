@@ -9,7 +9,6 @@ import NavBar from 'react-bootstrap/NavBar';
 
 
 // Components
-import Footer from '../components/Footer'
 
 // Pages
 import Profile from '../pages/Profile';
@@ -18,13 +17,6 @@ import Games from '../pages/Games';
 
 
 class AppNavBar extends React.Component {
-
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         hderLinks: 
-    //     }
-    // }
 
     render() {
         return (
@@ -45,7 +37,6 @@ class AppNavBar extends React.Component {
                     <Route path='/my-list' render={() => <MyList />} />
                     <Route path='/profile' render={() => <Profile />} />
 
-                    <Footer />
                 </Container>
             </Router>
         );
