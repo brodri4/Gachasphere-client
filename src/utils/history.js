@@ -1,2 +1,2 @@
-import createHashHistory from 'history/createHashHistory';
+const createHashHistory = require("history").createHashHistory;
 export default createHashHistory();
