@@ -2,7 +2,7 @@ import { userConstants } from '../actions/userActionTypes';
 
 const initialState = { isAuthenticated: false };
 
-const reducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
     switch(action.type) {
         case userConstants.LOGIN_SUCCESS:
             return {
@@ -36,4 +36,4 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-export default reducer;
+export default userReducer
