@@ -15,6 +15,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet';
 import thunk from 'redux-thunk';
 import BaseLayout from './components/BaseLayout';
+import requireAuth from './components/requireAuth';
+import Dashboard from './components/Dashboard';
 
 const persistConfig = {
   key: 'root',
@@ -32,9 +34,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(persistedReducer, composeEnhancers(applyMiddleware(thunk)));
 const persistor = persistStore(store);
 
-// App component = login page
-// <Route exact path="/dashboard" component={requireAuth(Dashboard)} />
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -44,6 +43,7 @@ ReactDOM.render(
             <Switch>
               <Route exact path="/index" component={App} />
               <Route exact path="/register" component={RegisterPage} />
+              <Route exact path="/dashboard" component={requireAuth(Dashboard)} />
               <Redirect exact from='/' to='/index' />
             </Switch>
           </BaseLayout>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import { userActions } from '../store/actions/userActions';
 
 function RegisterPage(props) {
