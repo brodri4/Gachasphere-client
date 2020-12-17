@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Test from './test';
 import RegisterPage from './components/RegisterPage';
+
 import reportWebVitals from './reportWebVitals';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
