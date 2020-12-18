@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-#root {
+#root, html {
   background-color: #E8FFFB;
   color: #083136;
 }
@@ -67,18 +67,49 @@ input {
 }
 
 .primary-button {
-  border-radius: 20px;
-  padding: 20px;
-  margin: 10px;
+  flex: 1 1 auto;
+  margin: 20px;
+  padding: 15px 35px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: #123440;
+  background-image: linear-gradient(to right,#FFBC5B 0%, #FF5645 50%, #F7213D 50%, #DD07B7 100%);
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  border-radius: 30px;
+  border: none;
 }
 
 .secondary-button {
-  border-radius: 20px;
-  padding: 20px;
-  margin: 10px;
+  border-radius: 30px;
+  padding: 10px 30px;
+  margin: 20px;
+  border: none;
+  color: #123440;
+  background-image: linear-gradient(to right,#E8FFFB 0%, #85FFF1 40%, #47D4E5 100%);
+  background-color: #47D4E5;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
 }
 
 a:link, a:active, a:visited {
   color: #083136;
   text-decoration: none;
+}
+
+.primary-button:hover, .primary-button:focus {
+  background-position: right center;
+  outline: none;
+}
+
+.primary-button:active, .primary-button:active:after {
+  outline: none;
+  background-position: left center;
+}
+
+.secondary-button:active {
+  transform: translateY(3px) translateX(3px);
+}
+
+.secondary-button:focus {
+  outline: none;
 }

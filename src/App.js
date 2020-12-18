@@ -28,7 +28,7 @@ function App(props) {
         <label>Username</label>
         <input onChange={handleOnChange} type="text" name="username"></input>
         <label>Password</label>
-        <input onChange={handleOnChange} type="text" name="password"></input>
+        <input onChange={handleOnChange} type="password" name="password"></input>
       </div>
       <button className="primary-button" onClick={handleOnClick}>Login</button>
       <div className="flex-row">
