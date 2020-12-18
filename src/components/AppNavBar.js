@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavBar from 'react-bootstrap/NavBar';
+import logo from '../images/GachasphereRed.png';
 
 
 // Components
@@ -22,9 +23,9 @@ class AppNavBar extends React.Component {
     render() {
         return (
             <Router>
-                <Container className='p-0' fluid={true}>
+                <Container id="header" className='p-0' fluid={true}>
                     <NavBar className='border-bottom' collapseOnSelect bg='transparent' expand='sm'>
-                        <NavBar.Brand>GachaSphere</NavBar.Brand>
+                        <NavBar.Brand><img className="logo" src={logo} alt="GachaSphere Logo" /></NavBar.Brand>
                         <Navbar.Toggle className='border-bottom' aria-controls='navbar-toggle' />
                         <NavBar.Collapse id='responsive-navbar-nav' >
                             <Nav className='ml-auto'>

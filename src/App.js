@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { userActions } from './store/actions/userActions';
+import { NavLink } from 'react-router-dom';
 
 function App(props) {
   const [user, setUser] = useState({});
@@ -21,12 +22,21 @@ function App(props) {
   }, [])
 
   return (
-    <div>
-      <label>Username</label>
-      <input onChange={handleOnChange} type="text" name="username"></input>
-      <label>Password</label>
-      <input onChange={handleOnChange} type="text" name="password"></input>
+    <div className="login-block">
+      <h1>Login</h1>
+      <div className="input-block">
+        <label>Username</label>
+        <input onChange={handleOnChange} type="text" name="username"></input>
+        <label>Password</label>
+        <input onChange={handleOnChange} type="text" name="password"></input>
+      </div>
       <button className="primary-button" onClick={handleOnClick}>Login</button>
+      <div className="flex-row">
+            <hr className="line"></hr>
+            <p>or</p>
+            <hr className="line"></hr>
+      </div>
+      <NavLink to="/register"><button className="secondary-button">Register</button></NavLink>
     </div>
   )
 }

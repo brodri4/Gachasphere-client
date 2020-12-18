@@ -14,9 +14,11 @@ import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet';
 import thunk from 'redux-thunk';
-import BaseLayout from './components/BaseLayout';
+import Footer from './components/Footer';
 import requireAuth from './components/requireAuth';
 import Dashboard from './components/Dashboard';
+import AppNavBar from './components/AppNavBar';
+import 'bootstrap/dist/css/bootstrap.css'
 
 const persistConfig = {
   key: 'root',
@@ -39,14 +41,14 @@ ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <HashRouter>
-          <BaseLayout>
+          <AppNavBar/>
             <Switch>
               <Route exact path="/index" component={App} />
               <Route exact path="/register" component={RegisterPage} />
               <Route exact path="/dashboard" component={requireAuth(Dashboard)} />
               <Redirect exact from='/' to='/index' />
             </Switch>
-          </BaseLayout>
+            <Footer/>
         </HashRouter>
       </PersistGate>
     </Provider>

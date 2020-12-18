@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { userActions } from '../store/actions/userActions';
+import { NavLink } from 'react-router-dom';
 
 function RegisterPage(props) {
     const [user, setUser] = useState({})
@@ -20,14 +21,23 @@ function RegisterPage(props) {
     }
 
     return (
-        <div>
-            <label>Username</label>
-            <input onChange={handleOnChange} type="text" name="username"></input>
-            <label>Password</label>
-            <input onChange={handleOnChange} type="text" name="password"></input>
-            <label>Email</label>
-            <input onChange={handleOnChange} type="text" name="email"></input>
-            <button onClick={handleOnClick}>Register</button>
+        <div className="reg-block">
+            <h1>Register</h1>
+            <div className="input-block">
+                <label>Username</label>
+                <input onChange={handleOnChange} type="text" name="username"></input>
+                <label>Password</label>
+                <input onChange={handleOnChange} type="text" name="password"></input>
+                <label>Email</label>
+                <input onChange={handleOnChange} type="text" name="email"></input>
+            </div>
+            <button className="primary-button"onClick={handleOnClick}>Register</button>
+            <div className="flex-row">
+                <hr className="line"></hr>
+                <p>or</p>
+                <hr className="line"></hr>
+            </div>
+            <NavLink to="/index"><button className="secondary-button">Login</button></NavLink>
         </div>
     )
 }
