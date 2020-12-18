@@ -1,13 +1,84 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  background-color: #E8FFFB;
+  color: #083136;
+}
+
+/* colors
+background - #E8FFFB
+secondary - #47D4E5
+primary - #85FFF1
+accents: #FCB07E, #F1887B 
+text: #083136 */
+
+#header, footer {
+  background-color: #47D4E5;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
+}
+
+.logo {
+  width: 200px;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.login-block, .reg-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ADFFF5;
+  color: #083136;
+  border-radius: 20px;
+  padding: 75px 150px;
+  margin: 50px 2%;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+input {
+  margin: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  -moz-box-shadow:    inset 0 0 2px #083136;
+  -webkit-box-shadow: inset 0 0 2px #083136;
+  box-shadow:         inset 0 0 2px #083136;
+}
+
+.input-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.line {
+  width: 100px;
+  border-color: #123440;
+}
+
+.primary-button {
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.secondary-button {
+  border-radius: 20px;
+  padding: 20px;
+  margin: 10px;
+}
+
+a:link, a:active, a:visited {
+  color: #083136;
+  text-decoration: none;
 }
