@@ -27,9 +27,9 @@ function RegisterPage(props) {
                 <label>Username</label>
                 <input onChange={handleOnChange} type="text" name="username"></input>
                 <label>Password</label>
-                <input onChange={handleOnChange} type="text" name="password"></input>
+                <input onChange={handleOnChange} type="password" name="password"></input>
                 <label>Email</label>
-                <input onChange={handleOnChange} type="text" name="email"></input>
+                <input onChange={handleOnChange} type="email" name="email"></input>
             </div>
             <button className="primary-button"onClick={handleOnClick}>Register</button>
             <div className="flex-row">
