@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { userActions } from '../store/actions/userActions';
 
 // ReactBoot Items
 import Container from 'react-bootstrap/Container';
@@ -19,6 +20,10 @@ import Navbar from 'react-bootstrap/NavBar';
 
 
 class AppNavBar extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
 
     render() {
         return (
@@ -29,10 +34,11 @@ class AppNavBar extends React.Component {
                         <Navbar.Toggle className='border-bottom' aria-controls='navbar-toggle' />
                         <NavBar.Collapse id='responsive-navbar-nav' >
                             <Nav className='ml-auto'>
-                                {this.props.isAuth ? null : <Nav.Link eventKey='1' as={Link} to='/games/all'>Games</Nav.Link>}
+                                {!this.props.isAuth ? null : <Nav.Link eventKey='1' as={Link} to='/games/all'>Games</Nav.Link>}
                                 {/* pending auth token then below two will updated */}
-                                {this.props.isAuth ? null : <Nav.Link eventKey='2' as={Link} to='/my-list'>My List</Nav.Link>}
-                                {this.props.isAuth ? null : <Nav.Link eventKey='3' as={Link} to='/profile'>Profile</Nav.Link>}
+                                {!this.props.isAuth ? null : <Nav.Link eventKey='2' as={Link} to='/my-list'>My List</Nav.Link>}
+                                {!this.props.isAuth ? null : <Nav.Link eventKey='3' as={Link} to='/profile'>Profile</Nav.Link>}
+                                <button className="secondary-button" onClick={this.props.logout}>Logout</button>
                             </Nav>
                         </NavBar.Collapse>
                     </NavBar>
@@ -48,9 +54,15 @@ class AppNavBar extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        isAuth: state.isAuthenticated
+        isAuth: state.userR.isAuthenticated
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        logout: () => dispatch(userActions.logout())
     }
 }
 
 
-export default connect(mapStateToProps)(AppNavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(AppNavBar);
