@@ -9,6 +9,7 @@ import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import userReducer from './store/reducers/userReducer';
+import gameReducer from './store/reducers/gameReducer';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -27,7 +28,8 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-  userR: userReducer
+  userR: userReducer,
+  gameR: gameReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
