@@ -60,8 +60,6 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: #47D4E5;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
 }
 
 .line {
@@ -102,6 +100,11 @@ input {
   padding: 10px;
 }
 
+.my-games-heading {
+  text-align: start;
+  margin: 20px;
+}
+
 .rating-item_game {
   display: flex;
   flex-direction: column;
@@ -111,6 +114,7 @@ input {
 
 .rating-item_game_logo {
   width: 100px;
+  margin: 5px;
 }
 
 .rating-item_rating {
@@ -124,6 +128,10 @@ input {
 a:link, a:active, a:visited {
   color: #083136;
   text-decoration: none;
+}
+
+.rating-item:hover {
+  border-left: solid 2px #FCB07E;
 }
 
 .primary-button:hover, .primary-button:focus {
