@@ -19,7 +19,7 @@ function login(user) {
 function register(user) {
   console.log("service");
 
-  return axios.post(`${link}/register`, {
+  return axios.post(`${link}/user/register`, {
     username: user.username,
     password: user.password,
     email: user.email,
