@@ -19,7 +19,7 @@ function login(user) {
                     localStorage.setItem('jsonwebtoken', token);
                     setAuthenticationHeader(token);
                     dispatch(success());
-                    history.push('/dashboard');
+                    history.push('/homepage');
                 } else if (result.data.login === false) {
                     dispatch(failure(result.data.message))
                 }
@@ -46,7 +46,7 @@ function register(user) {
                     localStorage.setItem('jsonwebtoken', token);
                     setAuthenticationHeader(token);
                     dispatch(success());
-                    history.push('/dashboard')
+                    history.push('/homepage')
                 } else if (result.data.userAdded === false) {
                     dispatch(failure(result.data.message))
                 }
