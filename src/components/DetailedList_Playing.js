@@ -15,6 +15,7 @@ function Dashboard(props) {
             </div>
         )
     } else {
+        // sort by currently playing
         let ratings = props.gameRatings.map(rating => {
             let altText = `${rating.Game.title} logo`
             return ( 
@@ -25,17 +26,19 @@ function Dashboard(props) {
                     </div>
                     <div className="rating-item_rating">
                         <p>Gameplay: {rating.gameplayRating}</p>
-                        <p>f2p: {rating.f2pRating}</p>
-                        <p>currently playing: {rating.playing ? "yes" : "no"}</p>
+                        <p>Free To Play: {rating.f2pRating}</p>
                     </div>
                 </li>
             )
         })
 
         return (
-            <ul>
-                {ratings}
-            </ul>
+            <div>
+                <h1 className="my-games-heading">My Games</h1>
+                <ul>
+                    {ratings}
+                </ul>
+            </div>
         )
     }
 
