@@ -46,7 +46,7 @@ function register(user) {
                     localStorage.setItem('jsonwebtoken', token);
                     setAuthenticationHeader(token);
                     dispatch(success());
-                    history.push('/homepage')
+                    history.push('/index')
                 } else if (result.data.userAdded === false) {
                     dispatch(failure(result.data.message))
                 }

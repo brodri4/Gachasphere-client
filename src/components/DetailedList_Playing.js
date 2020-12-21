@@ -6,7 +6,7 @@ function DetailedList_Playing(props) {
 
     useEffect(() => {
         props.fetchRatings()
-    })
+    }, [])
 
     if(!props.gameRatings || !props.gameRatings[0]) {
         return (
@@ -17,7 +17,7 @@ function DetailedList_Playing(props) {
     } else {
         // sort by currently playing
         let ratings = props.gameRatings.map(rating => {
-            let altText = `${rating.Game.title} logo`
+            let altText = `${rating.Game.title} logo`;
             return ( 
                 <li key={rating.id} className="rating-item">
                     <div className="rating-item_game">
@@ -34,7 +34,7 @@ function DetailedList_Playing(props) {
 
         return (
             <div>
-                <h1 className="my-games-heading">My Games</h1>
+                <h1 className="heading">My Games</h1>
                 <ul>
                     {ratings}
                 </ul>

@@ -90,7 +90,7 @@ input {
   background-image: linear-gradient(to right,#E8FFFB 0%, #85FFF1 40%, #47D4E5 100%);
 }
 
-.rating-item {
+.rating-item, .game-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,24 +100,24 @@ input {
   padding: 10px;
 }
 
-.my-games-heading {
+.heading {
   text-align: start;
   margin: 20px;
 }
 
-.rating-item_game {
+.rating-item_game, .game-item_left {
   display: flex;
   flex-direction: column;
   padding: 10px;
   justify-content: flex-start;
 }
 
-.rating-item_game_logo {
+.rating-item_game_logo, .game-item_game_logo {
   width: 100px;
   margin: 5px;
 }
 
-.rating-item_rating {
+.rating-item_rating, .game-item_right {
   display: flex;
   flex-direction: column;
   align-items: center;
