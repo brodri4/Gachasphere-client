@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { gameActions } from '../store/actions/gameActions';
 
-function Dashboard(props) {
+function DetailedList_Playing(props) {
 
     useEffect(() => {
         props.fetchRatings()
@@ -56,4 +56,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(DetailedList_Playing);

@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import RegisterPage from './components/RegisterPage';
-
 import reportWebVitals from './reportWebVitals';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
@@ -15,11 +13,20 @@ import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 import hardSet from 'redux-persist/lib/stateReconciler/hardSet';
 import thunk from 'redux-thunk';
+import 'bootstrap/dist/css/bootstrap.css'
+
+// Components
 import Footer from './components/Footer';
 import requireAuth from './components/requireAuth';
-import Dashboard from './components/Dashboard';
 import AppNavBar from './components/AppNavBar';
-import 'bootstrap/dist/css/bootstrap.css'
+import RegisterPage from './components/RegisterPage';
+
+// Pages
+import HomePage from './pages/HomePage';
+import Games from './pages/Games';
+import Profile from './pages/Profile';
+import MyLists from './pages/MyLists';
+
 
 const persistConfig = {
   key: 'root',
@@ -43,14 +50,19 @@ ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <HashRouter>
-          <AppNavBar/>
-            <Switch>
-              <Route exact path="/index" component={App} />
-              <Route exact path="/register" component={RegisterPage} />
-              <Route exact path="/dashboard" component={requireAuth(Dashboard)} />
-              <Redirect exact from='/' to='/index' />
-            </Switch>
-            <Footer/>
+          <AppNavBar />
+          <Switch>
+            <Route exact path="/index" component={App} />
+            <Route exact path="/register" component={RegisterPage} />
+            <Redirect exact from='/' to='/index' />
+            
+            {/* Pages */}
+            <Route exact path="/homepage" component={requireAuth(HomePage)} />
+            <Route exact path='/games/all' component={requireAuth(Games)} />
+            <Route path='/my-lists' component={requireAuth(MyLists)} />
+            <Route path='/profile' component={requireAuth(Profile)} />
+          </Switch>
+          <Footer />
         </HashRouter>
       </PersistGate>
     </Provider>
