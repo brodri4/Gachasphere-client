@@ -20,10 +20,8 @@ function Dashboard(props) {
             return ( 
                 <li key={rating.id} className="rating-item">
                     <div className="rating-item_game">
-                        <img src={rating.Game.logo} alt={altText}/>
+                        <img src={rating.Game.logo} alt={altText} className="rating-item_game_logo"/>
                         <h3>{rating.Game.title}</h3>
-                        <p>{rating.Game.releaseDate}</p>
-                        <p>{rating.Game.developer}</p>
                     </div>
                     <div className="rating-item_rating">
                         <p>Gameplay: {rating.gameplayRating}</p>

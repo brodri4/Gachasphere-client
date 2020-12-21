@@ -60,6 +60,8 @@ input {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background-color: #47D4E5;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
 }
 
 .line {
@@ -88,8 +90,35 @@ input {
   border: none;
   color: #123440;
   background-image: linear-gradient(to right,#E8FFFB 0%, #85FFF1 40%, #47D4E5 100%);
+}
+
+.rating-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #47D4E5;
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  margin: 1%;
+  padding: 10px;
+}
+
+.rating-item_game {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: flex-start;
+}
+
+.rating-item_game_logo {
+  width: 100px;
+}
+
+.rating-item_rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-left: solid 2px #123440;
 }
 
 a:link, a:active, a:visited {
