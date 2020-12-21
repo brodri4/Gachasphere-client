@@ -5,6 +5,16 @@ const initialState = { gameRatings: [] };
 
 const gameReducer = (state = initialState, action) => {
     switch(action.type) {
+        case gameConstants.GAMES_FETCHED:
+            return {
+                ...state,
+                games: action.payload
+            }
+        case gameConstants.GAME_FETCH_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
         case gameConstants.RATINGS_FETCHED:
             return {
                 ...state,
