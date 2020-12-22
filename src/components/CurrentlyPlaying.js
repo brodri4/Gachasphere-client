@@ -40,7 +40,7 @@ function CurrentlyPlaying(props) {
 
         return (
             <div>
-                <h1 className="my-games-heading">Currently Playing</h1>
+                {/* <h1 className="my-games-heading">Currently Playing</h1> */}
                 <ul>
                     {ratings}
                 </ul>

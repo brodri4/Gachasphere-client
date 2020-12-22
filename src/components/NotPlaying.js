@@ -40,7 +40,7 @@ function NotPlaying(props) {
 
         return (
             <div>
-                <h1 className="my-games-heading">No Longer Playing</h1>
+                {/* <h1 className="my-games-heading">No Longer Playing</h1> */}
                 <ul>
                     {ratings}
                 </ul>
