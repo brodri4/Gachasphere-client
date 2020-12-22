@@ -2,8 +2,30 @@ import { gameConstants } from './gameActionTypes';
 import { gameService } from './gameService';
 
 export const gameActions = {
+    createRating,
     fetchGames,
     fetchRatings
+}
+
+function createRating(rating) {
+    return dispatch => {
+        gameService.createRating(rating)
+        .then(
+            result => {
+                if (result.data.ratingCreated) {
+                    dispatch(success(result.data))
+                } else if (!result.data.ratingCreated) {
+                    dispatch(failure(result.data.message))
+                } 
+            },
+            error => {
+                dispatch(failure(error))
+            }
+        )
+    }
+
+    function success(result) { return { type: gameConstants.RATING_CREATED, payload: result } }
+    function failure(error) { return { type: gameConstants.RATING_CREATE_FAIL, payload: error } }
 }
 
 function fetchGames() {

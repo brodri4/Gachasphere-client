@@ -6,7 +6,7 @@ function NotPlaying(props) {
 
     useEffect(() => {
         props.fetchRatings()
-    })
+    }, [])
 
     if (!props.gameRatings || !props.gameRatings[0]) {
         return (
