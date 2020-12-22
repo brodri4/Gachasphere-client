@@ -1,9 +1,19 @@
 import React from 'react';
 
-function MyList() {
+// Components
+import NotPlaying from '../components/NotPlaying';
+import CurrentlyPlaying from '../components/CurrentlyPlaying';
+
+
+
+function MyLists(props) {
+
     return (
-        <h1>All of User's Lists</h1>
-    )
+        <div>
+            <CurrentlyPlaying />
+            <NotPlaying />
+        </div>
+    );
 }
 
-export default MyList;
+export default MyLists;

@@ -15,18 +15,19 @@ function Games(props) {
             </div>
         )
     } else {
-        
+
         let games = props.games.map(game => {
-            let altText = `${game.title} logo`; 
+            let altText = `${game.title} logo`;
             return <li key={game.id} className="game-item">
                 <div className='game-item_left'>
-                    <img src={game.logo} alt={altText} className="game-item_game_logo"/>
-                    <h3>{game.title}</h3>
+                    <img src={game.logo} alt={altText} className="game-item_game_logo" />
+
                 </div>
                 <div className="game-item_right">
-                    <p>{game.developer}</p>
-                    <p>{game.releaseDate}</p>
-                    <p>{game.averageRating}</p>
+                    <h3>{game.title}</h3>
+                    <p>Developer: {game.developer}</p>
+                    <p>Released: {game.releaseDate}</p>
+                    {game.averageRating === null ? null : <p>Average Rating: {game.averageRating}</p>}
 
                 </div>
             </li>

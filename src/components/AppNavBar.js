@@ -34,7 +34,7 @@ class AppNavBar extends React.Component {
                         <NavBar.Collapse id='responsive-navbar-nav' >
                             <Nav className='ml-auto'>
                                 {!this.props.isAuth ? null : <Nav.Link eventKey='1' as={Link} to='/games/all'>Games</Nav.Link>}
-                                {!this.props.isAuth ? null : <Nav.Link eventKey='2' as={Link} to='/my-list'>My Lists</Nav.Link>}
+                                {!this.props.isAuth ? null : <Nav.Link eventKey='2' as={Link} to='/my-lists'>My Lists</Nav.Link>}
                                 {!this.props.isAuth ? null : <Nav.Link eventKey='3' as={Link} to='/profile'>Profile</Nav.Link>}
                                 <button className="secondary-button" onClick={this.props.logout}>Logout</button>
                             </Nav>
