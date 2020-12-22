@@ -6,7 +6,7 @@ function HomePage(props) {
 
     useEffect(() => {
         props.fetchRatings()
-    })
+    }, [])
 
     if(!props.gameRatings || !props.gameRatings[0]) {
         return (

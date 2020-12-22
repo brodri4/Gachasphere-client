@@ -25,6 +25,17 @@ const gameReducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload
             }
+        case gameConstants.RATING_CREATED:
+            return {
+                ...state,
+                ratingCreated: true
+            }
+        case gameConstants.RATING_CREATE_FAIL:
+            return {
+                ...state,
+                ratingCreated: false,
+                error: action.payload
+            }    
         // all reducers will need to listen for this
         case userConstants.LOGOUT:
             return {
