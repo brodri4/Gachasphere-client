@@ -6,7 +6,7 @@ function CurrentlyPlaying(props) {
 
     useEffect(() => {
         props.fetchRatings()
-    })
+    }, [])
 
     if (!props.gameRatings || !props.gameRatings[0]) {
         return (
@@ -26,12 +26,12 @@ function CurrentlyPlaying(props) {
                             <img src={rating.Game.logo} alt={altText} className="rating-item_game_logo" />
                         </div>
 
-                        <div className="rating-item_rating">
+                        {/* <div className="rating-item_rating">
                             <h3>{rating.Game.title}</h3>
                             <p>Gameplay: {rating.gameplayRating}</p>
                             <p>Free To Play: {rating.f2pRating}</p>
                             <p>Status: {rating.playing === true ? 'is playing' : 'is not playing'}</p>
-                        </div>
+                        </div> */}
                     </li>
                     : null}
                 </div>
@@ -39,9 +39,8 @@ function CurrentlyPlaying(props) {
         })
 
         return (
-            <div>
-                {/* <h1 className="my-games-heading">Currently Playing</h1> */}
-                <ul>
+            <div className='playing-status-container'>
+                <ul className='playing-status_ul'>
                     {ratings}
                 </ul>
             </div>
