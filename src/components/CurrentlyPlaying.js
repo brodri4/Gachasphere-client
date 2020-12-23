@@ -21,7 +21,7 @@ function CurrentlyPlaying(props) {
             return (
                 <div class='myListPlaying'>
                     {rating.playing === true ?
-                    <li key={rating.id} className="rating-item">
+                    <li key={rating.id} className="myListPlaying-item">
                         <div className="rating-item_game">
                             <img src={rating.Game.logo} alt={altText} className="rating-item_game_logo" />
                         </div>
