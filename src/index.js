@@ -20,6 +20,8 @@ import Footer from "./components/Footer";
 import requireAuth from "./components/requireAuth";
 import AppNavBar from "./components/AppNavBar";
 import RegisterPage from "./components/RegisterPage";
+import DetailedList_Playing from "./components/DetailedList_Playing";
+import DetailedList_NotPlaying from "./components/DetailedList_NotPlaying";
 
 // Pages
 import HomePage from "./pages/HomePage";
@@ -29,6 +31,7 @@ import MyLists from "./pages/MyLists";
 import PasswordReset from "./components/PasswordReset";
 import ResetPage from "./components/ResetPage";
 import Game from './pages/Game';
+import EditRating from "./components/EditRating";
 
 
 const persistConfig = {
@@ -70,6 +73,13 @@ ReactDOM.render(
             <Route exact path="/games/all" component={requireAuth(Games)} />
             <Route path="/my-lists" component={requireAuth(MyLists)} />
             <Route path="/profile" component={requireAuth(Profile)} />
+
+            {/* Detailed List Views */}
+            <Route exact path="/detailed/playing" component={requireAuth(DetailedList_Playing)}/>
+            <Route exact path="/detailed/not-playing" component={requireAuth(DetailedList_NotPlaying)}/>
+
+            <Route path="/edit-rating/:id" component={requireAuth(EditRating)} />
+        
           </Switch>
           <Footer />
         </HashRouter>

@@ -5,6 +5,7 @@ import NotPlaying from '../components/NotPlaying';
 import CurrentlyPlaying from '../components/CurrentlyPlaying';
 import AddRating from '../components/AddRating';
 import AddFilter from '../components/AddFilter';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -21,9 +22,9 @@ function MyLists(props) {
 
     return (
         <div className='myLists-container'>
-            <h1 className="heading">Currently Playing</h1>
+            <NavLink to="/detailed/playing"><h1 className="heading">Currently Playing</h1></NavLink>
             <CurrentlyPlaying />
-            <h1 className="heading">No Longer Playing</h1>
+            <NavLink to="/detailed/not-playing"><h1 className="heading">No Longer Playing</h1></NavLink>
             <NotPlaying />
             <button onClick={handleOnClick} className="secondary-button">Add Rating</button>
             <AddFilter active={activeComponent}>
