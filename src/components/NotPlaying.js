@@ -6,7 +6,7 @@ function NotPlaying(props) {
 
     useEffect(() => {
         props.fetchRatings()
-    }, [])
+    }, [props.ratingCreated])
 
     if (!props.gameRatings || !props.gameRatings[0]) {
         return (
@@ -51,7 +51,8 @@ function NotPlaying(props) {
 
 const mapStateToProps = (state) => {
     return {
-        gameRatings: state.gameR.gameRatings
+        gameRatings: state.gameR.gameRatings,
+        ratingCreated: state.gameR.ratingCreated
     }
 }
 

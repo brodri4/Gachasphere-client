@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { userActions } from "../store/actions/userActions";
 import { NavLink } from "react-router-dom";
@@ -9,6 +9,11 @@ const link = serverLink();
 
 function PasswordReset(props) {
   const [user, setUser] = useState({});
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    setMessage("");
+  }, []);
 
   const handleOnChange = (e) => {
     setUser({
@@ -18,9 +23,13 @@ function PasswordReset(props) {
   };
 
   const handleOnClick = () => {
-    axios.post(`${link}/user/recover`, {
-      email: user.email,
-    });
+    axios
+      .post(`${link}/user/recover`, {
+        email: user.email,
+      })
+      .then((result) => {
+        setMessage(result.data.message);
+      });
   };
 
   return (
@@ -30,6 +39,7 @@ function PasswordReset(props) {
         <label>Email</label>
         <input onChange={handleOnChange} type="email" name="email"></input>
       </div>
+      <div>{message}</div>
       <button className="primary-button" onClick={handleOnClick}>
         Send Password Reset Email
       </button>
