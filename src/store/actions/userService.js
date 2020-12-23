@@ -25,6 +25,13 @@ function register(user) {
     email: user.email,
   });
 }
+// function sendEmailRequest(user) {
+//   console.log("service");
+
+//   return axios.post(`${link}/user/reset`, {
+//     password: user.password,
+//   });
+// }
 
 function logout() {
   localStorage.removeItem("jsonwebtoken");
