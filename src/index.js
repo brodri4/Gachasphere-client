@@ -26,7 +26,7 @@ import HomePage from './pages/HomePage';
 import Games from './pages/Games';
 import Profile from './pages/Profile';
 import MyLists from './pages/MyLists';
-
+import Game from './pages/Game';
 
 const persistConfig = {
   key: 'root',
@@ -57,6 +57,7 @@ ReactDOM.render(
             <Redirect exact from='/' to='/index' />
             
             {/* Pages */}
+            <Route exact path="/game" component={requireAuth(Game)} />
             <Route exact path="/homepage" component={requireAuth(HomePage)} />
             <Route exact path='/games/all' component={requireAuth(Games)} />
             <Route path='/my-lists' component={requireAuth(MyLists)} />
