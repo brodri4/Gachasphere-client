@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { userActions } from "../store/actions/userActions";
 import { NavLink } from "react-router-dom";
@@ -9,8 +9,12 @@ const link = serverLink();
 
 function ResetPage(props) {
   const [user, setUser] = useState({});
+  const [message, setMessage] = useState("");
   const token = props.match.params.token;
 
+  useEffect(() => {
+    setMessage("");
+  }, []);
   const handleOnChange = (e) => {
     setUser({
       ...user,
@@ -22,6 +26,8 @@ function ResetPage(props) {
     const url = `${link}/user/reset/${token}`;
     Axios.post(url, {
       password: user.password,
+    }).then((result) => {
+      setMessage(result.data.message);
     });
   };
 
@@ -36,6 +42,7 @@ function ResetPage(props) {
           name="password"
         ></input>
       </div>
+      <div>{message}</div>
       <button className="primary-button" onClick={handleOnClick}>
         Reset Password
       </button>
