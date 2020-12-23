@@ -4,7 +4,9 @@ import { serverLink } from "../../utils/serverLink";
 export const gameService = {
     createRating,
     fetchGames,
-    fetchRatings
+    fetchRatings,
+    fetchSingleRating,
+    updateRating
 }
 
 const link = serverLink();
@@ -24,4 +26,17 @@ function fetchGames() {
 
 function fetchRatings() {
     return axios.get(`${link}/games/my-ratings`)
+}
+
+function fetchSingleRating(id) {
+    return axios.get(`${link}/games/single-rating/${id}`)
+}
+
+function updateRating(rating) {
+    return axios.post(`${link}/games/update-rating/${rating.ratingId}`, {
+        gameId: rating.gameId,
+        gameplayRating: rating.gameplayRating,
+        f2pRating: rating.f2pRating,
+        playing: rating.playing
+    })
 }

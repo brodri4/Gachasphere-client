@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { gameActions } from '../store/actions/gameActions';
 import { generatePath, NavLink } from 'react-router-dom';
+import { gameActions } from '../store/actions/gameActions';
 
-function DetailedList_Playing(props) {
+function DetailedList_NotPlaying(props) {
 
     useEffect(() => {
         props.fetchRatings()
@@ -21,7 +21,7 @@ function DetailedList_Playing(props) {
             let altText = `${rating.Game.title} logo`;
             return ( 
                 <div>
-                    {rating.playing === true ?
+                    {rating.playing === false ?
                     <li key={rating.id} className="rating-item">
                         <div className="rating-item_game">
                             <img src={rating.Game.logo} alt={altText} className="rating-item_game_logo"/>
@@ -40,7 +40,7 @@ function DetailedList_Playing(props) {
 
         return (
             <div>
-                <h1 className="heading">My Games - Playing</h1>
+                <h1 className="heading">My Games - Not Playing</h1>
                 <ul>
                     {ratings}
                 </ul>
@@ -62,4 +62,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DetailedList_Playing);
+export default connect(mapStateToProps, mapDispatchToProps)(DetailedList_NotPlaying);

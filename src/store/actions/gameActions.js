@@ -4,7 +4,9 @@ import { gameService } from './gameService';
 export const gameActions = {
     createRating,
     fetchGames,
-    fetchRatings
+    fetchRatings,
+    fetchSingleRating,
+    updateRating
 }
 
 function createRating(rating) {
@@ -75,4 +77,52 @@ function fetchRatings() {
 
     function success(result) { return { type: gameConstants.RATINGS_FETCHED, payload: result } }
     function failure(error) { return { type: gameConstants.RATING_FETCH_FAIL, payload: error } }
+}
+
+function fetchSingleRating(id) {
+    return dispatch => {
+        dispatch(loading())
+        gameService.fetchSingleRating(id)
+        .then(
+            result => {
+                if (result.data) {
+                    dispatch(success(result.data))
+                } else if (!result.data) {
+                    let error = "Something went wrong - rating not loaded."
+                    dispatch(failure(error))
+                }
+            },
+            error => {
+                dispatch(failure(error))
+            }
+        )
+    }
+
+    function loading() { return { type: gameConstants.SINGLE_RATING_LOADING } }
+    function success(result) { return { type: gameConstants.SINGLE_RATING_FETCHED, payload: result } }
+    function failure(error) { return { type: gameConstants.SINGLE_RATING_FETCH_FAIL, payload: error } }
+}
+
+function updateRating(rating) {
+    return dispatch => {
+        dispatch(loading())
+        gameService.updateRating(rating)
+        .then(
+            result => {
+                if (result.data) {
+                    dispatch(success(result.data))
+                } else if (!result.data) {
+                    let error = "Something went wrong - rating not updated."
+                    dispatch(failure(error))
+                }
+            },
+            error => {
+                dispatch(failure(error))
+            }
+        )
+    }
+
+    function loading() { return { type: gameConstants.RATING_UPDATE_REQUEST } }
+    function success(result) { return { type: gameConstants.RATING_UPDATED, payload: result } }
+    function failure(error) { return { type: gameConstants.RATING_UPDATE_FAIL, payload: error } }
 }
