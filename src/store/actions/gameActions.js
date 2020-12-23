@@ -9,12 +9,16 @@ export const gameActions = {
 
 function createRating(rating) {
     return dispatch => {
+        dispatch(ratingCreateRequested())
         gameService.createRating(rating)
         .then(
             result => {
                 if (result.data.ratingCreated) {
                     dispatch(success(result.data))
                 } else if (!result.data.ratingCreated) {
+                    if (result.data.ratingExists) {
+                        dispatch(ratingExists())
+                    }
                     dispatch(failure(result.data.message))
                 } 
             },
@@ -23,8 +27,9 @@ function createRating(rating) {
             }
         )
     }
-
+    function ratingCreateRequested() {return { type: gameConstants.RATING_CREATE_REQUESTED } }
     function success(result) { return { type: gameConstants.RATING_CREATED, payload: result } }
+    function ratingExists() { return {type: gameConstants.RATING_CREATE_FAIL_EXISTS } }
     function failure(error) { return { type: gameConstants.RATING_CREATE_FAIL, payload: error } }
 }
 
