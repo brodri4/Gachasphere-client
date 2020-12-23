@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { userActions } from "./store/actions/userActions";
+import { userActions } from "../store/actions/userActions";
 import { NavLink } from "react-router-dom";
+import { serverLink } from "../utils/serverLink";
+import Axios from "axios";
 
-function App(props) {
+const link = serverLink();
+
+function ResetPage(props) {
   const [user, setUser] = useState({});
+  const token = props.match.params.token;
 
   const handleOnChange = (e) => {
     setUser({
@@ -14,20 +19,17 @@ function App(props) {
   };
 
   const handleOnClick = () => {
-    props.login(user);
+    const url = `${link}/user/reset/${token}`;
+    Axios.post(url, {
+      password: user.password,
+    });
   };
 
-  useEffect(() => {
-    userActions.logout();
-  }, []);
-
   return (
-    <div className="login-block">
-      <h1>Login</h1>
+    <div className="reg-block">
+      <h1>Update your password</h1>
       <div className="input-block">
-        <label>Username</label>
-        <input onChange={handleOnChange} type="text" name="username"></input>
-        <label>Password</label>
+        <label>New Password</label>
         <input
           onChange={handleOnChange}
           type="password"
@@ -35,18 +37,15 @@ function App(props) {
         ></input>
       </div>
       <button className="primary-button" onClick={handleOnClick}>
-        Login
+        Reset Password
       </button>
       <div className="flex-row">
         <hr className="line"></hr>
         <p>or</p>
         <hr className="line"></hr>
       </div>
-      <NavLink to="/register">
-        <button className="secondary-button">Register</button>
-      </NavLink>
-      <NavLink to="/recover">
-        <button className="secondary-button">Forgot your password?</button>
+      <NavLink to="/index">
+        <button className="secondary-button">Login</button>
       </NavLink>
     </div>
   );
@@ -54,8 +53,8 @@ function App(props) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    login: (user) => dispatch(userActions.login(user)),
+    register: (user) => dispatch(userActions.register(user)),
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(ResetPage);
