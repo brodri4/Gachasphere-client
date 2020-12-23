@@ -90,7 +90,7 @@ input {
   background-image: linear-gradient(to right,#E8FFFB 0%, #85FFF1 40%, #47D4E5 100%);
 }
 
-.rating-item, .game-item {
+.rating-item, .game-item, .myListPlaying-item, .homepage-item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,7 +130,7 @@ a:link, a:active, a:visited {
   text-decoration: none;
 }
 
-.rating-item:hover {
+.rating-item:hover, .myListPlaying-item:hover, .homepage-item:hover {
   border-left: solid 2px #FCB07E;
 }
 
@@ -180,7 +180,7 @@ a:link, a:active, a:visited {
   padding-right: 30px;
 }
 
-.rating-item {
+.myListPlaying-item {
   width: 200px;
   height: 200px;
   margin: 15px 10px 5px 5px;
@@ -189,8 +189,44 @@ a:link, a:active, a:visited {
   box-shadow: 0 6px 20px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+/* Homepage & Categories */
+.homepage-category-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.homepage-item {
+  flex-direction: column;
+  border-radius: 20px;
+  width: 250px;
+  height: 250px;
+  margin: 10px 0px 10px 0px;
+}
+
+.homepage-item_stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-top: solid 2px #123440;
+}
+
+.homepage-category_li {
+  flex: 0 1 300px;
+  margin: 15px;
+}
+.homepage-category-list {
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  height: 600px;
+  
+/* Boris css stuff */
 .articles{
   height:500px;
   width: 250px;
   overflow: auto;
+
 }
