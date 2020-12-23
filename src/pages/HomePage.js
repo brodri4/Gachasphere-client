@@ -1,59 +1,33 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { gameActions } from '../store/actions/gameActions';
+import React from 'react';
 
-function HomePage(props) {
+// Components
+import FreeToPlay from '../components/FreeToPlay';
+import AvgRating from '../components/AvgRating';
+import Popularity from '../components/Popularity';
 
-    useEffect(() => {
-        props.fetchRatings()
-    }, [])
 
-    if(!props.gameRatings || !props.gameRatings[0]) {
-        return (
-            <div>
-                <h1>Create a rating!</h1>
-            </div>
-        )
-    } else {
-        // sort by currently playing
-        let ratings = props.gameRatings.map(rating => {
-            let altText = `${rating.Game.title} logo`
-            return ( 
-                <li key={rating.id} className="rating-item">
-                    <div className="rating-item_game">
-                        <img src={rating.Game.logo} alt={altText} className="rating-item_game_logo"/>
-                        <h3>{rating.Game.title}</h3>
-                    </div>
-                    <div className="rating-item_rating">
-                        <p>Gameplay: {rating.gameplayRating}</p>
-                        <p>Free To Play: {rating.f2pRating}</p>
-                    </div>
+
+function MyLists(props) {
+
+    return (
+        <div>
+            <h1>Title TBD</h1>
+            <ul className='homepage-category-container'>
+                <li className='homepage-category_li'>
+                    <h2>Popular Games</h2>
+                    <Popularity />
                 </li>
-            )
-        })
-
-        return (
-            <div>
-                <h1 className="my-games-heading">My Games</h1>
-                <ul>
-                    {ratings}
-                </ul>
-            </div>
-        )
-    }
-
+                <li className='homepage-category_li'>
+                    <h2>Top Free To Play</h2>
+                    <FreeToPlay />
+                </li>
+                <li className='homepage-category_li'>
+                    <h2>Highest Rated</h2>
+                    <AvgRating />
+                </li>
+            </ul>
+        </div>
+    );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        gameRatings: state.gameR.gameRatings
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchRatings: () => dispatch(gameActions.fetchRatings())
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default MyLists;
