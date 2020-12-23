@@ -222,9 +222,9 @@ a:link, a:active, a:visited {
   place-items: center;
   overflow: auto;
   height: 600px;
-  
+}
 /* Boris css stuff */
-.articles{
+.articles {
   height:500px;
   width: 250px;
   overflow: auto;

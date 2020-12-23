@@ -7,37 +7,44 @@ function AvgRating(props) {
     useEffect(() => {
         props.fetchGames()
     }, [])
+    if (!props.games || !props.games[0]) {
+        return (
+            <div>
+                <h1>Nothing available :(</h1>
+            </div>
+        )
+    } else {
+        // sort by average review rating
+        let f2p = props.games
+            .sort((gameA, gameB) => gameB.averageRating - gameA.averageRating)
+            .map(games => {
+                let altText = `${games.title} logo`
+                return (
+                    <li key={games.id} className='homepage-item'>
+                        <div className="rating-item_game">
+                            <img src={games.logo} alt={altText} className="rating-item_game_logo" />
+                        </div>
+                        <div className='homepage-item_stat'>
+                            <h3>{games.title}</h3>
+                            <p>Average Rating: {games.averageRating}</p>
+                        </div>
+                    </li>
+                )
+            })
 
-    // sort by average review rating
-    let f2p = props.gameRatings
-        .sort((gameA, gameB) => gameB.Game.averageRating - gameA.Game.averageRating)
-        .map(game => {
-            let altText = `${game.Game.title} logo`
-            return (
-                <li key={game.id} className='homepage-item'>
-                    <div className="rating-item_game">
-                        <img src={game.Game.logo} alt={altText} className="rating-item_game_logo" />
-                    </div>
-                    <div className='homepage-item_stat'>
-                        <h3>{game.Game.title}</h3>
-                        <p>Average Rating: {game.Game.averageRating}</p>
-                    </div>
-                </li>
-            )
-        })
-
-    return (
-        <div className='homepage-category-list'>
-            <ul>
-                {f2p}
-            </ul>
-        </div>
-    )
+        return (
+            <div>
+                <ul>
+                    {f2p}
+                </ul>
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = (state) => {
     return {
-        gameRatings: state.gameR.gameRatings
+        games: state.gameR.games
     }
 }
 
