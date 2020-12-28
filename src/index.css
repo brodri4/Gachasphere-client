@@ -100,9 +100,36 @@ input {
   padding: 10px;
 }
 
+.edit-page {
+  display: grid;
+  grid-template-areas: 
+  "heading heading heading"
+  ". edit .";
+}
+
+.container_edit-rating {
+  margin: 2%;
+  padding: 20px;
+  background-color: #47D4E5;
+  grid-area: edit;
+  border-radius: 20px;
+}
+
+.games-page, .detailed-list-page {
+  display: grid;
+  grid-template-areas: 
+  "heading heading heading"
+  ". main .";
+}
+
+.container_game-items, .container_rating-items {
+  grid-area: main;
+}
+
 .heading {
   text-align: start;
   margin: 20px;
+  grid-area: heading;
 }
 
 .rating-item_game, .game-item_left {
@@ -123,6 +150,12 @@ input {
   align-items: center;
   padding: 10px;
   border-left: solid 2px #123440;
+}
+
+.detailed-list_buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 a:link, a:active, a:visited {
@@ -223,6 +256,18 @@ a:link, a:active, a:visited {
   overflow: auto;
   height: 600px;
 }
+
+.homepage-heading {
+  background-color: #C2FFF8;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.homepage-heading h3 {
+  text-align: left;
+}
+
 /* Boris css stuff */
 .articles {
   height:500px;

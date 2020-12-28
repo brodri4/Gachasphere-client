@@ -4,6 +4,7 @@ import { gameActions } from '../store/actions/gameActions';
 
 function EditRating(props) {
     const [localRating, setLocalRating] = useState({});
+    const [edited, setEdited] = useState(false)
     
     let id = props.match.params.id;
 
@@ -13,13 +14,14 @@ function EditRating(props) {
 
     useEffect(() => {
         fetchRating(id)
-    }, [])
+    }, [props.updateLoading])
 
     const handleOnChange = (e) => {
         setLocalRating({
             ...localRating,
             [e.target.name]: e.target.value
         })
+        setEdited(false)
     }
 
     const handleOnClick = () => {
@@ -45,6 +47,7 @@ function EditRating(props) {
         }
 
         props.updateRating(ratingObj)
+        setEdited(true)
     }
 
     if (!props.singleRating || props.singleLoading) {
@@ -54,7 +57,7 @@ function EditRating(props) {
     } else if (!props.singleLoading) {
 
         let radios = '';
-        if (props.singleLoading.playing) {
+        if (props.singleRating.playing) {
             radios = {inputs: <div>
                                 <label htmlFor="yes">Yes</label>
                                 <input type="radio" id="yes" name="playing" value="true" onChange={handleOnChange} defaultChecked></input>
@@ -72,17 +75,22 @@ function EditRating(props) {
         let altText = `${props.singleRating.Game.title} logo`;
 
         return (
-            <div>
-                <img src={props.singleRating.Game.logo} alt={altText} className="rating-item_game_logo"/>
-                <h1>{props.singleRating.Game.title}</h1>
-                <div className="input-block">
-                    <label>Gameplay Rating</label>
-                    <input type="number" max="10" min="0" step="0.1" name="gameplayRating" onChange={handleOnChange} placeholder="10.0" defaultValue={props.singleRating.gameplayRating}></input>
-                    <label>Free to Play Rating</label>
-                    <input type="number" max="10" min="0" step="0.1" name="f2pRating" onChange={handleOnChange} placeholder="10.0" defaultValue={props.singleRating.f2pRating}></input>
-                    <p>Currently playing?</p>
-                        {radios.inputs}
-                    <button className="primary-button" onClick={handleOnClick}>Submit</button>
+            <div className="edit-page">
+                <h1 className="heading">Edit Rating</h1>
+                <div className="container_edit-rating">
+                    <img src={props.singleRating.Game.logo} alt={altText} className="rating-item_game_logo"/>
+                    <h1>{props.singleRating.Game.title}</h1>
+                    {edited && props.ratingUpdated && !props.ratingLoading && <h3>Rating updated!</h3>}
+                    {edited && !props.ratingUpdated && !props.ratingLoading && <h3>Something went wrong.</h3>}
+                    <div className="input-block">
+                        <label>Gameplay Rating</label>
+                        <input type="number" max="10" min="0" step="0.1" name="gameplayRating" onChange={handleOnChange} placeholder="10.0" defaultValue={props.singleRating.gameplayRating}></input>
+                        <label>Free to Play Rating</label>
+                        <input type="number" max="10" min="0" step="0.1" name="f2pRating" onChange={handleOnChange} placeholder="10.0" defaultValue={props.singleRating.f2pRating}></input>
+                        <p>Currently playing?</p>
+                            {radios.inputs}
+                        <button className="primary-button" onClick={handleOnClick}>Submit</button>
+                    </div>
                 </div>
             </div>
         )
@@ -92,7 +100,9 @@ function EditRating(props) {
 const mapStateToProps = (state) => {
     return {
         singleRating: state.gameR.singleRating,
-        singleLoading: state.gameR.singleLoading
+        singleLoading: state.gameR.singleLoading,
+        updateLoading: state.gameR.updateLoading,
+        ratingUpdated: state.gameR.ratingUpdated
     }
 }
 

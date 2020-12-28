@@ -11,7 +11,9 @@ function MyLists(props) {
 
     return (
         <div>
-            <h1>Title TBD</h1>
+            <div className="homepage-heading">
+                <h3>World of Anime Mobile Gaming</h3>
+            </div>
             <ul className='homepage-category-container'>
                 <li className='homepage-category_li'>
                     <h2>Popular Games</h2>

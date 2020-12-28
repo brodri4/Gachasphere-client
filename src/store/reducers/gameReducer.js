@@ -80,9 +80,26 @@ const gameReducer = (state = initialState, action) => {
         case gameConstants.RATING_UPDATE_FAIL:
             return {
                 ...state,
-                updateLoading:false,
+                updateLoading: false,
                 ratingUpdated: false,
                 error: action.payload
+            }
+        case gameConstants.RATING_DELETE_REQUEST:
+            return {
+                ...state,
+                deleteLoading: true
+            }
+        case gameConstants.RATING_DELETED:
+            return {
+                ...state,
+                deleteLoading: false,
+                ratingDeleted: true
+            }
+        case gameConstants.RATING_DELETE_FAIL:
+            return {
+                ...state,
+                deleteLoading: false,
+                ratingDeleted: false
             }
         // all reducers will need to listen for this
         case userConstants.LOGOUT:

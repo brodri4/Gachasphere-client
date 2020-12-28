@@ -6,7 +6,8 @@ export const gameActions = {
     fetchGames,
     fetchRatings,
     fetchSingleRating,
-    updateRating
+    updateRating,
+    deleteRating
 }
 
 function createRating(rating) {
@@ -125,4 +126,28 @@ function updateRating(rating) {
     function loading() { return { type: gameConstants.RATING_UPDATE_REQUEST } }
     function success(result) { return { type: gameConstants.RATING_UPDATED, payload: result } }
     function failure(error) { return { type: gameConstants.RATING_UPDATE_FAIL, payload: error } }
+}
+
+function deleteRating(id) {
+    return dispatch => {
+        dispatch(loading())
+        gameService.deleteRating(id)
+        .then(
+            result => {
+                if (result.data.ratingDeleted) {
+                    dispatch(success(result.data))
+                } else if (!result.data.ratingDeleted) {
+                    let error = "Something went wrong - rating not deleted";
+                    dispatch(failure(error))
+                }
+            },
+            error => {
+                dispatch(failure(error))
+            }
+        )
+    }
+
+    function loading() { return { type: gameConstants.RATING_DELETE_REQUEST } }
+    function success(result) { return { type: gameConstants.RATING_DELETED, payload: result } }
+    function failure(error) { return { type: gameConstants.RATING_DELETE_FAIL, payload: error } }
 }
