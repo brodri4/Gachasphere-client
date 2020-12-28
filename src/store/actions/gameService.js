@@ -6,7 +6,8 @@ export const gameService = {
     fetchGames,
     fetchRatings,
     fetchSingleRating,
-    updateRating
+    updateRating,
+    deleteRating
 }
 
 const link = serverLink();
@@ -39,4 +40,8 @@ function updateRating(rating) {
         f2pRating: rating.f2pRating,
         playing: rating.playing
     })
+}
+
+function deleteRating(id) {
+    return axios.delete(`${link}/games/delete-rating/${id}`)
 }

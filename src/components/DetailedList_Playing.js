@@ -7,7 +7,7 @@ function DetailedList_Playing(props) {
 
     useEffect(() => {
         props.fetchRatings()
-    }, [])
+    }, [props.deleteLoading])
 
     if(!props.gameRatings || !props.gameRatings[0]) {
         return (
@@ -30,7 +30,10 @@ function DetailedList_Playing(props) {
                         <div className="rating-item_rating">
                             <p>Gameplay: {rating.gameplayRating}</p>
                             <p>Free To Play: {rating.f2pRating}</p>
-                            <NavLink to={generatePath("/edit-rating/:id", {id: rating.id})}><button className="secondary_button">Edit</button></NavLink>
+                            <div className="detailed-list_buttons">
+                                <NavLink to={generatePath("/edit-rating/:id", {id: rating.id})}><button className="secondary-button">Edit</button></NavLink>
+                                <button className="primary-button" onClick={() => {props.deleteRating(rating.id)}}>Delete</button>
+                            </div>
                         </div>
                     </li> 
                     : null }
@@ -39,9 +42,9 @@ function DetailedList_Playing(props) {
         })
 
         return (
-            <div>
+            <div className="detailed-list-page">
                 <h1 className="heading">My Games - Playing</h1>
-                <ul>
+                <ul className="container_rating-items">
                     {ratings}
                 </ul>
             </div>
@@ -52,13 +55,15 @@ function DetailedList_Playing(props) {
 
 const mapStateToProps = (state) => {
     return {
-        gameRatings: state.gameR.gameRatings
+        gameRatings: state.gameR.gameRatings,
+        deleteLoading: state.gameR.deleteLoading
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchRatings: () => dispatch(gameActions.fetchRatings())
+        fetchRatings: () => dispatch(gameActions.fetchRatings()),
+        deleteRating: (id) => dispatch(gameActions.deleteRating(id))
     }
 }
 

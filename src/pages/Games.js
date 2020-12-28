@@ -34,9 +34,9 @@ function Games(props) {
         })
 
         return (
-            <div>
+            <div className="games-page">
                 <h1 className="heading">All Games</h1>
-                <ul>
+                <ul className="container_game-items">
                     {games}
                 </ul>
             </div>

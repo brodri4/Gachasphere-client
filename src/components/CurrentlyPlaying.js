@@ -19,7 +19,7 @@ function CurrentlyPlaying(props) {
         let ratings = props.gameRatings.map(rating => {
             let altText = `${rating.Game.title} logo`
             return (
-                <div class='myListPlaying'>
+                <div className='myListPlaying'>
                     {rating.playing === true ?
                     <li key={rating.id} className="myListPlaying-item">
                         <div className="rating-item_game">
