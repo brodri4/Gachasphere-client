@@ -4,6 +4,8 @@
 
 <h2>Summary </h2>
 
+[Server-side repository](https://github.com/brodri4/Gachasphere-api)
+
 - [About the Project](#about-the-project)
 - [Usage](#usage)
 - [Videos and Screenshots](#videos-and-screenshots)
