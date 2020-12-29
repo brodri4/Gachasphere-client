@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+<h1> Gachasphere </h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="./src/images/GachasphereBlue.png" width="100" alt="Gachasphere logo"/>
 
-## Available Scripts
+<h2>Summary </h2>
 
-In the project directory, you can run:
+- [About the Project](#about-the-project)
+- [Usage](#usage)
+- [Videos and Screenshots](#videos-and-screenshots)
+- [Getting Started](#getting-started)
+- [Built With](#built-with)
+- [Accessibility](#accessibility)
+- [Authors](#authors)
+- [Acknowledgements](#acknowledgements)
 
-### `npm start`
+## About the Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Videos and Screenshots
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To set up a local copy of the project follow the steps below.
 
-### `npm run build`
+# Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* In an empty folder initialize a new Node.js project.
+```sh
+npm init
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone to local machine
+```sh
+git clone https://github.com/mattquint111/Super-React-Boy
+```
+2. Install NPM packages
+```sh
+npm install 
+```
+3. Start program
+```sh
+npm start
+```
 
-### `npm run eject`
+## Built With
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Javascript
+- CSS
+- [Bootstrap](https://getbootstrap.com/)
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [React Redux](https://react-redux.js.org/)
+- [Redux Persist](https://github.com/rt2zz/redux-persist)
+- [React Router DOM](https://reactrouter.com/web/guides/quick-start)
+- [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+- [Axios](https://github.com/axios/axios)
+- [History](https://www.npmjs.com/package/history)
+- [Node.js](https://nodejs.org/en/)
+- [Express](https://expressjs.com/)
+- [Sequelize](https://sequelize.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Full Calendar](https://fullcalendar.io/)
+- [JSON Web Token](https://www.npmjs.com/package/jsonwebtoken)
+- [nodemailer](https://nodemailer.com/about/)
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Accessibility
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Text colors pass 4+ WCAG contrast tests.
+- All navigation and forms are tabbable.
+- Text alternatives for images.
+- Buttons and links have accessible names.
+- Appropriate title, label, and landmark elements.
+- No elements or attributes that would limit use by keyboard or screenreader users.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Authors
 
-## Learn More
+- **Borinquen "Boris" Rodriguez** - [brodri4](https://github.com/brodri4)
+- **Abbey Perini** - [abbeyperini](https://github.com/abbeyperini)
+- **Jonathan Nuno** - [Jonathan-Nuno](https://github.com/Jonathan-Nuno)
+- **Hung Tran** - [hptran7](https://github.com/hptran7)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgements

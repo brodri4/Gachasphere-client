@@ -10,7 +10,7 @@ function AvgRating(props) {
     if (!props.games || !props.games[0]) {
         return (
             <div>
-                <h1>Nothing available :(</h1>
+                <h1>Loading!</h1>
             </div>
         )
     } else {
@@ -25,8 +25,8 @@ function AvgRating(props) {
                             <img src={games.logo} alt={altText} className="rating-item_game_logo" />
                         </div>
                         <div className='homepage-item_stat'>
-                            <h3>{games.title}</h3>
-                            <p>Average Rating: {games.averageRating}</p>
+                            <h4 className="homepage_game-title">{games.title}</h4>
+                            <p className="tertiary-text">Average Rating: {games.averageRating}</p>
                         </div>
                     </li>
                 )

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Container, Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 
@@ -9,10 +10,9 @@ function Footer() {
             <Container fluid={true}>
                 <Row className='border-top justify-content-between p-3'>
                     <Col className='p-0' md='50%' sm='50%'>
-                        Left Footer
                     </Col>
                     <Col className='p-0 d-flex justify-content-end' md='50%' >
-                        Right Footer
+                        <NavLink to="/about">About</NavLink>
                     </Col>
                 </Row>
             </Container>

@@ -1,5 +1,4 @@
 import React from 'react';
-// This doesn't make ... nvm hung fixed it
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from '../store/actions/userActions';
@@ -17,6 +16,8 @@ import logo from '../images/GachasphereRed.png';
 import Navbar from 'react-bootstrap/NavBar';
 // import HomePage from '../pages/HomePage';
 
+// for when we make a profile page
+// {!this.props.isAuth ? null : <Nav.Link eventKey='3' as={Link} to='/profile'>Profile</Nav.Link>}
 
 class AppNavBar extends React.Component {
     // constructor(props) {
@@ -35,8 +36,7 @@ class AppNavBar extends React.Component {
                             <Nav className='ml-auto'>
                                 {!this.props.isAuth ? null : <Nav.Link eventKey='1' as={Link} to='/games/all'>Games</Nav.Link>}
                                 {!this.props.isAuth ? null : <Nav.Link eventKey='2' as={Link} to='/my-lists'>My Lists</Nav.Link>}
-                                {!this.props.isAuth ? null : <Nav.Link eventKey='3' as={Link} to='/profile'>Profile</Nav.Link>}
-                                <button className="secondary-button" onClick={this.props.logout}>Logout</button>
+                                {!this.props.isAuth ? null : <button className="nav-button" onClick={this.props.logout}>Logout</button>}
                             </Nav>
                         </NavBar.Collapse>
                     </NavBar>

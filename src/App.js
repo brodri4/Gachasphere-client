@@ -22,32 +22,36 @@ function App(props) {
   }, []);
 
   return (
-    <div className="login-block">
-      <h1>Login</h1>
-      <div className="input-block">
-        <label>Username</label>
-        <input onChange={handleOnChange} type="text" name="username"></input>
-        <label>Password</label>
-        <input
-          onChange={handleOnChange}
-          type="password"
-          name="password"
-        ></input>
+    <div className="login-page">
+      <div className="login-block">
+        <h1 className="heading">Login</h1>
+        <div className="input-block">
+          <label className="secondary-text">Username</label>
+          <input onChange={handleOnChange} type="text" name="username" onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}}></input>
+          <label className="secondary-text">Password</label>
+          <input
+            onChange={handleOnChange}
+            type="password"
+            name="password"
+            onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}}></input>
+        </div>
+        <button className="primary-button" onClick={handleOnClick}>
+          Login
+        </button>
+        <div className="flex-row">
+          <hr className="line"></hr>
+          <p className="or">or</p>
+          <hr className="line"></hr>
+        </div>
+        <div className="flex-row">
+          <NavLink to="/register">
+            <button className="secondary-button">Register</button>
+          </NavLink>
+          <NavLink to="/recover">
+            <button className="tertiary-button">Forgot your password?</button>
+          </NavLink>
+        </div>
       </div>
-      <button className="primary-button" onClick={handleOnClick}>
-        Login
-      </button>
-      <div className="flex-row">
-        <hr className="line"></hr>
-        <p>or</p>
-        <hr className="line"></hr>
-      </div>
-      <NavLink to="/register">
-        <button className="secondary-button">Register</button>
-      </NavLink>
-      <NavLink to="/recover">
-        <button className="secondary-button">Forgot your password?</button>
-      </NavLink>
     </div>
   );
 }

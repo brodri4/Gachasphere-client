@@ -22,11 +22,11 @@ function MyLists(props) {
 
     return (
         <div className='myLists-container'>
-            <NavLink to="/detailed/playing"><h1 className="heading">Currently Playing</h1></NavLink>
+            <NavLink to="/detailed/playing"><button className="heading-button">Currently Playing</button></NavLink>
             <CurrentlyPlaying />
-            <NavLink to="/detailed/not-playing"><h1 className="heading">No Longer Playing</h1></NavLink>
+            <NavLink to="/detailed/not-playing"><button className="heading-button">No Longer Playing</button></NavLink>
             <NotPlaying />
-            <button onClick={handleOnClick} className="secondary-button">Add Rating</button>
+            <button tabIndex="0" onClick={handleOnClick} className="secondary-button">Add Rating</button>
             <AddFilter active={activeComponent}>
                 <AddRating name="AddRating"/>
                 <div name="nada"></div>

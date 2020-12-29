@@ -84,9 +84,9 @@ function EditRating(props) {
                     {edited && !props.ratingUpdated && !props.ratingLoading && <h3>Something went wrong.</h3>}
                     <div className="input-block">
                         <label>Gameplay Rating</label>
-                        <input type="number" max="10" min="0" step="0.1" name="gameplayRating" onChange={handleOnChange} placeholder="10.0" defaultValue={props.singleRating.gameplayRating}></input>
+                        <input type="number" max="10" min="0" step="0.1" name="gameplayRating" onChange={handleOnChange} placeholder="10.0" defaultValue={props.singleRating.gameplayRating} onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}}></input>
                         <label>Free to Play Rating</label>
-                        <input type="number" max="10" min="0" step="0.1" name="f2pRating" onChange={handleOnChange} placeholder="10.0" defaultValue={props.singleRating.f2pRating}></input>
+                        <input type="number" max="10" min="0" step="0.1" name="f2pRating" onChange={handleOnChange} placeholder="10.0" defaultValue={props.singleRating.f2pRating} onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}}></input>
                         <p>Currently playing?</p>
                             {radios.inputs}
                         <button className="primary-button" onClick={handleOnClick}>Submit</button>
