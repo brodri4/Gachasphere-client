@@ -21,23 +21,25 @@ function RegisterPage(props) {
     }
 
     return (
-        <div className="reg-block">
-            <h1>Register</h1>
-            <div className="input-block">
-                <label>Username</label>
-                <input onChange={handleOnChange} type="text" name="username"></input>
-                <label>Password</label>
-                <input onChange={handleOnChange} type="password" name="password"></input>
-                <label>Email</label>
-                <input onChange={handleOnChange} type="email" name="email"></input>
+        <div className="reg-page">
+            <div className="reg-block">
+                <h1 className="heading">Register</h1>
+                <div className="input-block">
+                    <label>Username</label>
+                    <input onChange={handleOnChange} type="text" name="username" onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}}></input>
+                    <label>Password</label>
+                    <input onChange={handleOnChange} type="password" name="password" onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}}></input>
+                    <label>Email</label>
+                    <input onChange={handleOnChange} type="email" name="email" onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}}></input>
+                </div>
+                <button className="primary-button" onClick={handleOnClick}>Register</button>
+                <div className="flex-row">
+                    <hr className="line"></hr>
+                    <p className="or">or</p>
+                    <hr className="line"></hr>
+                </div>
+                <NavLink to="/index"><button className="secondary-button">Login</button></NavLink>
             </div>
-            <button className="primary-button"onClick={handleOnClick}>Register</button>
-            <div className="flex-row">
-                <hr className="line"></hr>
-                <p>or</p>
-                <hr className="line"></hr>
-            </div>
-            <NavLink to="/index"><button className="secondary-button">Login</button></NavLink>
         </div>
     )
 }

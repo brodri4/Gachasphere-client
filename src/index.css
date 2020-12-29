@@ -5,45 +5,31 @@
   text-align: center;
 }
 
+/* colors
+background - #E8FFFB
+secondary - #47D4E5
+primary - #85FFF1
+accents: #FCB07E, #F1887B 
+primary text: #083136 and bold
+secondary text: #07373B
+tertiary text: #0D5059
+*/
+
+/* base styling */
 #root, html {
   background-color: #E8FFFB;
   color: #083136;
   font-family: 'Comfortaa', cursive;
 }
 
-/* colors
-background - #E8FFFB
-secondary - #47D4E5
-primary - #85FFF1
-accents: #FCB07E, #F1887B 
-text: #083136 */
-
 #header, footer {
   background-color: #47D4E5;
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.1);
+  color: #0D5059;
 }
 
 .logo {
   width: 200px;
-}
-
-.flex-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.login-block, .reg-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #ADFFF5;
-  color: #083136;
-  border-radius: 20px;
-  padding: 75px 150px;
-  margin: 50px 2%;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
 }
 
 input {
@@ -53,6 +39,59 @@ input {
   -moz-box-shadow:    inset 0 0 2px #083136;
   -webkit-box-shadow: inset 0 0 2px #083136;
   box-shadow:         inset 0 0 2px #083136;
+}
+
+label {
+  margin-top: 10px;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.heading {
+  text-align: start;
+  margin: 20px;
+  grid-area: heading;
+  font-weight: 700;
+}
+
+.secondary-heading {
+  margin: 10px;
+  font-weight: 600;
+}
+
+.secondary-text {
+  color: #07373B;
+}
+
+.tertiary-text {
+  color: #0D5059;
+}
+
+/* login and register */
+.or {
+  margin: 0px 5px;
+}
+
+.login-page, .reg-page {
+  display: grid;
+  grid-template-areas: ". main .";
+}
+
+.login-block, .reg-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ADFFF5;
+  border-radius: 20px;
+  padding: 40px 50px;
+  margin: 50px 2%;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  grid-area: main;
 }
 
 .input-block {
@@ -67,6 +106,7 @@ input {
   border-color: #123440;
 }
 
+/* buttons */
 .primary-button {
   flex: 1 1 auto;
   margin: 20px;
@@ -74,7 +114,7 @@ input {
   text-align: center;
   transition: 0.5s;
   background-size: 200% auto;
-  color: #123440;
+  color: #083136;
   background-image: linear-gradient(to right,#FFBC5B 0%, #FF5645 50%, #F7213D 50%, #DD07B7 100%);
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   border-radius: 30px;
@@ -86,20 +126,77 @@ input {
   padding: 10px 30px;
   margin: 20px;
   border: none;
-  color: #123440;
+  color: #07373B;
   background-image: linear-gradient(to right,#E8FFFB 0%, #85FFF1 40%, #47D4E5 100%);
 }
 
-.rating-item, .game-item, .myListPlaying-item, .homepage-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #47D4E5;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
-  margin: 1%;
-  padding: 10px;
+.tertiary-button {
+  border: none;
+  color: #0D5059;
+  background-color: #ADFFF5;
 }
 
+.nav-button {
+  border: none;
+  color: #0D5059;
+  background-color: #47D4E5;
+}
+
+.heading-button {
+  border: none;
+  color: #083136;
+  font-weight: 700;
+  background-color: #E8FFFB;
+  padding: 20px;
+  margin: 10px;
+  font-size: 2.5em;
+  border-radius: 20px;
+}
+
+/* add rating */
+.add-rating {
+  background-color: #85FFF1;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.add-rating label, .add-rating p {
+  color: #07373B;
+  margin: 10px;
+}
+
+.add-rating_input-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.add-rating_input, .add-rating_input-block select {
+  margin-left: 10px;
+}
+
+.add-rating_input-block_radios {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-rating_input-block_radios div {
+  margin-left: 10px;
+}
+
+#yes, #no {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  box-shadow: none;
+}
+
+#add-rating_button {
+  margin-left: 125px;
+}
+
+/* edit page */
 .edit-page {
   display: grid;
   grid-template-areas: 
@@ -115,27 +212,34 @@ input {
   border-radius: 20px;
 }
 
+/* detailed list views */
+.rating-item, .game-item, .myListPlaying-item, .homepage-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #47D4E5;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  margin: 1%;
+  padding: 10px;
+}
+
 .games-page, .detailed-list-page {
   display: grid;
   grid-template-areas: 
   "heading heading heading"
   ". main .";
+  grid-template-columns: .5fr 1fr .5fr;
 }
 
 .container_game-items, .container_rating-items {
   grid-area: main;
 }
 
-.heading {
-  text-align: start;
-  margin: 20px;
-  grid-area: heading;
-}
-
 .rating-item_game, .game-item_left {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  align-items: center;
   justify-content: flex-start;
 }
 
@@ -144,51 +248,90 @@ input {
   margin: 5px;
 }
 
-.rating-item_rating, .game-item_right {
+.rating-item_rating {
+  margin: 10px 0px 10px 20px;
+  padding: 10px 0px 0px 20px;
+  border-left: solid 2px #123440;
   display: flex;
   flex-direction: column;
+}
+
+.rating-item_rating_tertiary-text {
+  display: flex;
   align-items: center;
-  padding: 10px;
-  border-left: solid 2px #123440;
+  justify-content: space-evenly;
+  color: #0D5059;
+  margin-left: 10px;
+}
+
+.rating-item_rating_secondary-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #07373B;
+  margin-left: 10px;
+  font-size: 1.5em;
 }
 
 .detailed-list_buttons {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  margin-left: 20px;
 }
 
-a:link, a:active, a:visited {
-  color: #083136;
-  text-decoration: none;
+.game-item_right {
+  border-left: solid 2px #123440;
+  display: grid;
+  grid-template-areas: "developer released average-rating"
+  "developer-name release-date average";
+  grid-template-columns: 150px 150px 150px;
+  padding: 20px 0px 20px 20px;
+  column-gap: 10px;
+  row-gap: 10px;
 }
 
-.rating-item:hover, .myListPlaying-item:hover, .homepage-item:hover {
-  border-left: solid 2px #FCB07E;
+.developer {
+  color: #0D5059;
+  grid-area: developer;
 }
 
-.primary-button:hover, .primary-button:focus {
-  background-position: right center;
-  outline: none;
+.released {
+  color: #0D5059;
+  grid-area: released;
 }
 
-.primary-button:active, .primary-button:active:after {
-  outline: none;
-  background-position: left center;
+.average-rating {
+  color: #0D5059;
+  grid-area: average-rating;
 }
 
-.secondary-button:active {
-  transform: translateY(3px) translateX(3px);
+.developer-name {
+  color: #07373B;
+  font-weight: 600;
+  grid-area: developer-name;
 }
 
-.secondary-button:focus {
-  outline: none;
+.release-date {
+  color: #07373B;
+  font-weight: 600;
+  grid-area: release-date;
+}
+
+.average {
+  color: #07373B;
+  font-weight: 600;
+  grid-area: average;
 }
 
 /* My Lists & Playing Status*/
 .myLists-container {
   display: grid;
   place-items: center;
+}
+
+.myLists-click {
+  border-radius: 20px;
 }
 
 .playing-status-container {
@@ -198,7 +341,7 @@ a:link, a:active, a:visited {
   overflow: auto;
   white-space: nowrap;
   border: none;
-  margin: 5% 5% 5% 0;
+  margin: 0 5% 5% 5%;
   border-radius: 15px;
   padding-left: 0;
   box-shadow: 0 6px 20px 0;
@@ -264,8 +407,9 @@ a:link, a:active, a:visited {
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
 }
 
-.homepage-heading h3 {
-  text-align: left;
+.homepage_game-title {
+  font-weight: 400;
+  color: #07373B;
 }
 
 /* Boris css stuff */
@@ -279,3 +423,46 @@ a:link, a:active, a:visited {
 .gameComponent{
   display: flex;
 }
+
+/* link styling and animations */
+a:link, a:active, a:visited, .nav-button:link, .nav-button:active, .nav-button:visited {
+  color: #0D5059 !important;
+  text-decoration: none;
+}
+
+a:hover, a:focus, .nav-button:hover, .nav-button:focus {
+  color: #083136 !important;
+  font-weight: 600;
+}
+
+.heading-button:focus, .heading-button:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.rating-item:hover, .myListPlaying-item:hover, .homepage-item:hover, .game-item:hover {
+  border-left: solid 2px #FCB07E;
+}
+
+.primary-button:hover, .primary-button:focus {
+  background-position: right center;
+  outline: none;
+}
+
+.primary-button:active, .primary-button:active:after {
+  outline: none;
+  background-position: left center;
+}
+
+.secondary-button:active {
+  transform: translateY(3px) translateX(3px);
+}
+
+#yes:hover, #yes:focus, #no:hover, #no:focus {
+  background-color: #ccc;
+}
+
+#yes:checked, #no:checked {
+  background-color: #85FFF1;
+}
+
+/* media queries */

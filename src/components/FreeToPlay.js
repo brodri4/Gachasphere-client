@@ -11,7 +11,7 @@ function FreeToPlay(props) {
     if (!props.games || !props.games[0]) {
         return (
             <div>
-                <h1>Nothing available :(</h1>
+                <h1>Loading!</h1>
             </div>
         )
     } else {
@@ -27,8 +27,8 @@ function FreeToPlay(props) {
                             <img src={games.logo} alt={altText} className="rating-item_game_logo" />
                         </div>
                         <div className='homepage-item_stat'>
-                            <h3>{games.title}</h3>
-                            <p>Free To Play: {games.averageF2P}</p>
+                            <h4 className="homepage_game-title">{games.title}</h4>
+                            <p className="tertiary-text">Free To Play: {games.averageF2P}</p>
                         </div>
                     </li>
                 )

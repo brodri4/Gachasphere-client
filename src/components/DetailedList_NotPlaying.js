@@ -25,11 +25,17 @@ function DetailedList_NotPlaying(props) {
                     <li key={rating.id} className="rating-item">
                         <div className="rating-item_game">
                             <img src={rating.Game.logo} alt={altText} className="rating-item_game_logo"/>
-                            <h3>{rating.Game.title}</h3>
+                            <h3 className="secondary-heading">{rating.Game.title}</h3>
                         </div>
                         <div className="rating-item_rating">
-                            <p>Gameplay: {rating.gameplayRating}</p>
-                            <p>Free To Play: {rating.f2pRating}</p>
+                            <div className="rating-item_rating_tertiary-text">
+                                <p>Gameplay:</p>
+                                <p>Free to Play:</p>
+                            </div>
+                            <div className="rating-item_rating_secondary-text">
+                                <p>{rating.gameplayRating}/10</p>
+                                <p>{rating.f2pRating}/10</p>
+                            </div>
                             <div className="detailed-list_buttons">
                                 <NavLink to={generatePath("/edit-rating/:id", {id: rating.id})}><button className="secondary-button">Edit</button></NavLink>
                                 <button className="primary-button" onClick={() => {props.deleteRating(rating.id)}}>Delete</button>

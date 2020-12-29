@@ -32,6 +32,7 @@ import PasswordReset from "./components/PasswordReset";
 import ResetPage from "./components/ResetPage";
 import Game from './pages/Game';
 import EditRating from "./components/EditRating";
+import About from "./pages/About";
 
 
 const persistConfig = {
@@ -61,6 +62,7 @@ ReactDOM.render(
         <HashRouter>
           <AppNavBar />
           <Switch>
+            {/* login, register, password reset, root redirect */}
             <Route exact path="/index" component={App} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/recover" component={PasswordReset} />
@@ -78,7 +80,11 @@ ReactDOM.render(
             <Route exact path="/detailed/playing" component={requireAuth(DetailedList_Playing)}/>
             <Route exact path="/detailed/not-playing" component={requireAuth(DetailedList_NotPlaying)}/>
 
+            {/* Edit a rating */}
             <Route path="/edit-rating/:id" component={requireAuth(EditRating)} />
+
+            {/* About page */}
+            <Route exact path="/about" component={About}/>
         
           </Switch>
           <Footer />
