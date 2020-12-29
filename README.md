@@ -1,6 +1,6 @@
 <h1> Gachasphere </h1>
 
-<img src="./src/images/GachasphereBlue.png" width="100" alt="Gachasphere logo"/>
+<img src="./src/images/GachasphereBlue.png" width="300" alt="Gachasphere logo"/>
 
 <h2>Summary </h2>
 
@@ -69,7 +69,7 @@ npm start
 
 ## Accessibility
 
-- Text colors pass 4+ WCAG contrast tests.
+- All colors pass 4+ WCAG contrast tests and are a red/blue color scheme.
 - All navigation and forms are tabbable.
 - Text alternatives for images.
 - Buttons and links have accessible names.
