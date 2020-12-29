@@ -4,8 +4,6 @@
 
 <h2>Summary </h2>
 
-[Server-side repository](https://github.com/brodri4/Gachasphere-api)
-
 - [About the Project](#about-the-project)
 - [Usage](#usage)
 - [Videos and Screenshots](#videos-and-screenshots)
@@ -23,7 +21,7 @@
 
 ## Getting Started
 
-To set up a local copy of the project follow the steps below.
+To set up a local copy of the project follow the steps below. Be sure to follow the instructions in the [server-side repository](https://github.com/brodri4/Gachasphere-api) as well.
 
 # Prerequisites
 
@@ -36,7 +34,7 @@ npm init
 
 1. Clone to local machine
 ```sh
-git clone https://github.com/mattquint111/Super-React-Boy
+git clone https://github.com/brodri4/Gachasphere-client.git
 ```
 2. Install NPM packages
 ```sh
