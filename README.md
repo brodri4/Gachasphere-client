@@ -62,7 +62,6 @@ npm start
 - [Express](https://expressjs.com/)
 - [Sequelize](https://sequelize.org/)
 - [PostgreSQL](https://www.postgresql.org/)
-- [Full Calendar](https://fullcalendar.io/)
 - [JSON Web Token](https://www.npmjs.com/package/jsonwebtoken)
 - [nodemailer](https://nodemailer.com/about/)
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
