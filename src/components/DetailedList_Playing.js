@@ -19,9 +19,8 @@ function DetailedList_Playing(props) {
         // sort by currently playing
         let ratings = props.gameRatings.map(rating => {
             let altText = `${rating.Game.title} logo`;
-            return ( 
-                <div>
-                    {rating.playing === true ?
+            if (rating.playing === true) {
+                return ( 
                     <li key={rating.id} className="rating-item">
                         <div className="rating-item_game">
                             <img src={rating.Game.logo} alt={altText} className="rating-item_game_logo"/>
@@ -42,9 +41,8 @@ function DetailedList_Playing(props) {
                             </div>
                         </div>
                     </li> 
-                    : null }
-                </div>
-            )
+                )
+            }
         })
 
         return (

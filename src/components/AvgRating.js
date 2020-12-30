@@ -33,11 +33,9 @@ function AvgRating(props) {
             })
 
         return (
-            <div className='homepage-category-list'>
-                <ul>
-                    {f2p}
-                </ul>
-            </div>
+            <ul className='homepage-category-list'>
+                {f2p}
+            </ul>
         )
     }
 }

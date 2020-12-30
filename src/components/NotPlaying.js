@@ -18,24 +18,15 @@ function NotPlaying(props) {
         // sort by currently playing
         let ratings = props.gameRatings.map(rating => {
             let altText = `${rating.Game.title} logo`
-            return (
-                <div className='myListPlaying'>
-                    {rating.playing === true ? null :
+            if (rating.playing === false) {
+                return (
                     <li key={rating.id} className="myListPlaying-item">
                         <div className="rating-item_game">
                             <img src={rating.Game.logo} alt={altText} className="rating-item_game_logo" />
                         </div>
-
-                        {/* <div className="rating-item_rating">
-                            <h3>{rating.Game.title}</h3>
-                            <p>Gameplay: {rating.gameplayRating}</p>
-                            <p>Free To Play: {rating.f2pRating}</p>
-                            <p>Status: {rating.playing === true ? 'is playing' : 'is not playing'}</p>
-                        </div> */}
                     </li>
-                    }
-                </div>
-            )
+                )
+            }
         })
 
         return (
