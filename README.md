@@ -78,6 +78,7 @@ npm start
 - Buttons and links have accessible names.
 - Appropriate title, label, and landmark elements.
 - No elements or attributes that would limit use by keyboard or screenreader users.
+- Concerted effort to cut down on unneccesary divs, a React/SPA problem.
 
 ## Authors
 
