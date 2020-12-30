@@ -470,7 +470,7 @@ label {
   transform-style: preserve-3d;
 }
 
-.team_card:hover .team_card_inner {
+.team_card:hover .team_card_inner, .team_card:focus .team_card_inner {
   transform: rotateY(180deg);
 }
 
@@ -548,7 +548,7 @@ a:hover, a:focus, .nav-button:hover, .nav-button:focus {
   background-color: rgba(0,0,0,0.1);
 }
 
-.rating-item:hover, .myListPlaying-item:hover, .homepage-item:hover, .game-item:hover, .collapsible:hover {
+.rating-item:hover, .myListPlaying-item:hover, .homepage-item:hover, .game-item:hover, .collapsible:hover, .collapsible:focus {
   border-left: solid 2px #FCB07E;
 }
 

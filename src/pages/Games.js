@@ -18,20 +18,22 @@ function Games(props) {
 
         let games = props.games.map(game => {
             let altText = `${game.title} logo`;
-            return <li key={game.id} className="game-item">
-                <div className='game-item_left'>
-                    <img src={game.logo} alt={altText} className="game-item_game_logo" />
-                    <h3 className="secondary-heading">{game.title}</h3>
-                </div>
-                <div className="game-item_right">
-                    <p className="developer">Developer:</p>
-                    <p className="released">Released:</p>
-                    {game.averageRating === null ? null : <p className="average-rating">Average Rating:</p>}
-                    <p className="developer-name">{game.developer}</p>
-                    <p className="release-date">{game.releaseDate}</p>
-                    {game.averageRating === null ? null : <p className="average">{game.averageRating.toFixed(1)}/10</p>}
-                </div>
-            </li>
+            return ( 
+                <li key={game.id} className="game-item">
+                    <div className='game-item_left'>
+                        <img src={game.logo} alt={altText} className="game-item_game_logo" />
+                        <h3 className="secondary-heading">{game.title}</h3>
+                    </div>
+                    <div className="game-item_right">
+                        <p className="developer">Developer:</p>
+                        <p className="released">Released:</p>
+                        {game.averageRating === null ? null : <p className="average-rating">Average Rating:</p>}
+                        <p className="developer-name">{game.developer}</p>
+                        <p className="release-date">{game.releaseDate}</p>
+                        {game.averageRating === null ? null : <p className="average">{game.averageRating.toFixed(1)}/10</p>}
+                    </div>
+                </li>
+            )
         })
 
         return (

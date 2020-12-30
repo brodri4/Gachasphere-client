@@ -8,7 +8,7 @@ import { ReactComponent as TwitterLogo } from '../images/twitter.svg';
 function AboutTeam() {
     return (
         <div className="team">
-            <div className="team_card">
+            <div className="team_card" tabIndex="0">
                 <div className="team_card_inner">
                     <div className="team_card_inner_front">
                         <div className="image-cropper">
@@ -25,7 +25,7 @@ function AboutTeam() {
                     </div>
                 </div>
             </div>
-            <div className="team_card">
+            <div className="team_card" tabIndex="0">
                 <div className="team_card_inner">
                     <div className="team_card_inner_front">
                         <div className="image-cropper">
@@ -42,7 +42,7 @@ function AboutTeam() {
                     </div>
                 </div>
             </div>
-            <div className="team_card">
+            <div className="team_card" tabIndex="0">
                 <div className="team_card_inner">
                     <div className="team_card_inner_front">
                         <div className="image-cropper">
@@ -59,7 +59,7 @@ function AboutTeam() {
                     </div>
                 </div>
             </div>
-            <div className="team_card">
+            <div className="team_card" tabIndex="0">
                 <div className="team_card_inner">
                     <div className="team_card_inner_front">
                         <div className="image-cropper">
@@ -76,7 +76,7 @@ function AboutTeam() {
                     </div>
                 </div>
             </div>
-            {/* <div className="team_card">
+            {/* <div className="team_card" tabIndex="0">
                 <div className="team_card_inner">
                     <div className="team_card_inner_front">
                         <div className="image-cropper">
