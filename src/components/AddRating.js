@@ -57,19 +57,19 @@ function AddRating(props) {
         return (
             <div className="add-rating">
                 <h1 className="heading">Add Rating</h1>
-                {props.ratingCreated && !props.ratingExists && <h3>Rating created!</h3>}
-                {props.ratingCreated === false && !props.ratingExists && <h3>Something went wrong.</h3>}
-                {invalid && <h3>Please fill out all fields.</h3>}
-                {props.ratingExists && <h3>Rating already exists.</h3>}
+                {props.ratingCreated && !props.ratingExists && <h2 className="message-text">Rating created!</h2>}
+                {props.ratingCreated === false && !props.ratingExists && <h2 className="message-text">Something went wrong.</h2>}
+                {invalid && <h2 className="message-text">Please fill out all fields.</h2>}
+                {props.ratingExists && <h2 className="message-text">Rating already exists.</h2>}
                 <div className="add-rating_input-block">
                     <label htmlFor="game">Game</label>
                     <select name="gameId" id="game" ref={gameSelect} onChange={handleOnChange}>
                         {selects}
                     </select>
-                    <label>Gameplay Rating</label>
-                    <input className="add-rating_input" type="number" max="10" min="0" step="0.1" name="gameplayRating" onChange={handleOnChange} placeholder="10.0" onKeyPress={(e) => {if (e.key === 'Enter') {handleOnSubmit()}}}></input>
-                    <label>Free to Play Rating</label>
-                    <input className="add-rating_input" type="number" max="10" min="0" step="0.1" name="f2pRating" onChange={handleOnChange} placeholder="10.0" onKeyPress={(e) => {if (e.key === 'Enter') {handleOnSubmit()}}}></input>
+                    <label htmlFor="addGameplay">Gameplay Rating</label>
+                    <input id="addGameplay" className="add-rating_input" type="number" max="10" min="0" step="0.1" name="gameplayRating" onChange={handleOnChange} placeholder="10.0" onKeyPress={(e) => {if (e.key === 'Enter') {handleOnSubmit()}}}></input>
+                    <label htmlFor="addF2P">Free to Play Rating</label>
+                    <input id="addF2P" className="add-rating_input" type="number" max="10" min="0" step="0.1" name="f2pRating" onChange={handleOnChange} placeholder="10.0" onKeyPress={(e) => {if (e.key === 'Enter') {handleOnSubmit()}}}></input>
                     <p>Currently playing?</p>
                     <div className="add-rating_input-block_radios">
                         <div className="flex-row">

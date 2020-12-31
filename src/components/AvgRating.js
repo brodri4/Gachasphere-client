@@ -25,7 +25,7 @@ function AvgRating(props) {
                             <img src={games.logo} alt={altText} className="rating-item_game_logo" />
                         </div>
                         <div className='homepage-item_stat'>
-                            <h4 className="homepage_game-title">{games.title}</h4>
+                            <h3 className="homepage_game-title">{games.title}</h3>
                             <p className="tertiary-text">Average Rating: {games.averageRating}</p>
                         </div>
                     </li>

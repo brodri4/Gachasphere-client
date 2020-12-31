@@ -17,7 +17,6 @@ function login(user) {
 }
 
 function register(user) {
-  console.log("service");
 
   return axios.post(`${link}/user/register`, {
     username: user.username,

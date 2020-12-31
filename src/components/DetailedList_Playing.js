@@ -1,9 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { gameActions } from '../store/actions/gameActions';
 import { generatePath, NavLink } from 'react-router-dom';
+import AddFilter from '../components/AddFilter';
+import AddRating from '../components/AddRating';
 
 function DetailedList_Playing(props) {
+    const [activeComponent, setActiveComponent] = useState("nada")
+    
+    const handleOnClick = () => {
+        if (activeComponent === "nada") {
+            setActiveComponent("AddRating")
+        } else if (activeComponent === "AddRating") {
+            setActiveComponent("nada")
+        }
+    }
 
     useEffect(() => {
         props.fetchRatings()
@@ -24,7 +35,7 @@ function DetailedList_Playing(props) {
                     <li key={rating.id} className="rating-item">
                         <div className="rating-item_game">
                             <img src={rating.Game.logo} alt={altText} className="rating-item_game_logo"/>
-                            <h3 className="secondary-heading">{rating.Game.title}</h3>
+                            <h2 className="secondary-heading">{rating.Game.title}</h2>
                         </div>
                         <div className="rating-item_rating">
                             <div className="rating-item_rating_tertiary-text">
@@ -51,6 +62,13 @@ function DetailedList_Playing(props) {
                 <ul className="container_rating-items">
                     {ratings}
                 </ul>
+                <div className="add-rating_container">
+                    <button tabIndex="0" onClick={handleOnClick} className="secondary-button">Add Rating</button>
+                    <AddFilter active={activeComponent}>
+                        <AddRating name="AddRating"/>
+                        <div name="nada"></div>
+                    </AddFilter>
+                </div>
             </div>
         )
     }

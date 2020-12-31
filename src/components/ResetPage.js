@@ -32,28 +32,33 @@ function ResetPage(props) {
   };
 
   return (
-    <div className="reg-block">
-      <h1>Update your password</h1>
-      <div className="input-block">
-        <label>New Password</label>
-        <input
-          onChange={handleOnChange}
-          type="password"
-          name="password"
-        ></input>
+    <div className="newPass-page">
+      <div className="newPass-block">
+        <h1 className="heading">Update Your Password</h1>
+        <h2>{message}</h2>
+        <div className="input-block">
+          <label htmlFor="newPassPassword" className="secondary-text">New Password</label>
+          <input
+            onChange={handleOnChange}
+            type="password"
+            name="password"
+            id="newPassPassword"
+            onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}}></input>
+        </div>
+        <div className="reset-buttons">
+          <button className="primary-button" onClick={handleOnClick}>
+            Update Password
+          </button>
+          <div className="flex-row">
+            <hr className="line"></hr>
+            <p className="or">or</p>
+            <hr className="line"></hr>
+          </div>
+          <NavLink to="/index">
+            <button className="secondary-button">Login</button>
+          </NavLink>
+        </div>
       </div>
-      <div>{message}</div>
-      <button className="primary-button" onClick={handleOnClick}>
-        Reset Password
-      </button>
-      <div className="flex-row">
-        <hr className="line"></hr>
-        <p>or</p>
-        <hr className="line"></hr>
-      </div>
-      <NavLink to="/index">
-        <button className="secondary-button">Login</button>
-      </NavLink>
     </div>
   );
 }

@@ -33,24 +33,28 @@ function PasswordReset(props) {
   };
 
   return (
-    <div className="reg-block">
-      <h1>Reset your password</h1>
-      <div className="input-block">
-        <label>Email</label>
-        <input onChange={handleOnChange} type="email" name="email"></input>
+    <div className="reset-page">
+      <div className="reset-block">
+        <h1 className="heading">Send Password Reset Email</h1>
+        <h2 className="message-text">{message}</h2>
+        <div className="input-block">
+          <label className="secondary-text" htmlFor="resetEmail">Email</label>
+          <input onChange={handleOnChange} onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}} id="resetEmail" type="email" name="email"></input>
+        </div>
+        <div className="reset-buttons">
+          <button className="primary-button" onClick={handleOnClick}>
+            Send Email
+          </button>
+          <div className="flex-row">
+            <hr className="line"></hr>
+            <p className="or">or</p>
+            <hr className="line"></hr>
+          </div>
+          <NavLink to="/index">
+            <button className="secondary-button">Login</button>
+          </NavLink>
+        </div>
       </div>
-      <div>{message}</div>
-      <button className="primary-button" onClick={handleOnClick}>
-        Send Password Reset Email
-      </button>
-      <div className="flex-row">
-        <hr className="line"></hr>
-        <p>or</p>
-        <hr className="line"></hr>
-      </div>
-      <NavLink to="/index">
-        <button className="secondary-button">Login</button>
-      </NavLink>
     </div>
   );
 }
