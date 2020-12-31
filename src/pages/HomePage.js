@@ -16,15 +16,15 @@ function MyLists(props) {
             </div>
             <ul className='homepage-category-container'>
                 <li className='homepage-category_li'>
-                    <h2 className="secondary-heading">Popular Games</h2>
+                    <h2 className="homepage_secondary-heading">Popular Games</h2>
                     <Popularity />
                 </li>
                 <li className='homepage-category_li'>
-                    <h2 className="secondary-heading">Top Free To Play</h2>
+                    <h2 className="homepage_secondary-heading">Top Free To Play</h2>
                     <FreeToPlay />
                 </li>
                 <li className='homepage-category_li'>
-                    <h2 className="secondary-heading">Highest Rated</h2>
+                    <h2 className="homepage_secondary-heading">Highest Rated</h2>
                     <AvgRating />
                 </li>
             </ul>

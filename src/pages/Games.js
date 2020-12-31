@@ -22,7 +22,7 @@ function Games(props) {
                 <li key={game.id} className="game-item">
                     <div className='game-item_left'>
                         <img src={game.logo} alt={altText} className="game-item_game_logo" />
-                        <h3 className="secondary-heading">{game.title}</h3>
+                        <h2 className="secondary-heading">{game.title}</h2>
                     </div>
                     <div className="game-item_right">
                         <p className="developer">Developer:</p>

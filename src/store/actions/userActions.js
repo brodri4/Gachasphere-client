@@ -11,6 +11,7 @@ export const userActions = {
 
 function login(user) {
     return dispatch => {
+        dispatch(loading())
         userService.login(user)
         .then(
             result => {
@@ -30,13 +31,13 @@ function login(user) {
         )
     }
 
+    function loading() { return { type: userConstants.LOGIN_REQUESTED } }
     function success() { return { type: userConstants.LOGIN_SUCCESS } }
     function failure(error) { return { type: userConstants.LOGIN_FAILURE, payload: error } }
 }
 
 function register(user) {
     return dispatch => {
-        console.log("action")
         userService.register(user)
         .then(
             result => {
@@ -58,7 +59,7 @@ function register(user) {
     }
 
     function success() { return { type: userConstants.REGISTER_SUCCESS } }
-    function failure(error) { return { type: userConstants.REGISTER_FAILURE, error: error } }
+    function failure(error) { return { type: userConstants.REGISTER_FAILURE, payload: error } }
 }
 
 function logout() {

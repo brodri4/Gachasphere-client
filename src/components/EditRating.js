@@ -78,15 +78,17 @@ function EditRating(props) {
             <div className="edit-page">
                 <h1 className="heading">Edit Rating</h1>
                 <div className="container_edit-rating">
-                    <img src={props.singleRating.Game.logo} alt={altText} className="rating-item_game_logo"/>
-                    <h1>{props.singleRating.Game.title}</h1>
-                    {edited && props.ratingUpdated && !props.ratingLoading && <h3>Rating updated!</h3>}
-                    {edited && !props.ratingUpdated && !props.ratingLoading && <h3>Something went wrong.</h3>}
+                    <div className="edit-heading">
+                        <img src={props.singleRating.Game.logo} alt={altText} className="rating-item_game_logo"/>
+                        <h2 className="edit-heading_game-title">{props.singleRating.Game.title}</h2>
+                    </div>
+                    {edited && props.ratingUpdated && !props.ratingLoading && <h3 className="message-text">Rating updated!</h3>}
+                    {edited && !props.ratingUpdated && !props.ratingLoading && <h3 className="message-text">Something went wrong.</h3>}
                     <div className="input-block">
-                        <label>Gameplay Rating</label>
-                        <input type="number" max="10" min="0" step="0.1" name="gameplayRating" onChange={handleOnChange} placeholder="10.0" defaultValue={props.singleRating.gameplayRating} onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}}></input>
-                        <label>Free to Play Rating</label>
-                        <input type="number" max="10" min="0" step="0.1" name="f2pRating" onChange={handleOnChange} placeholder="10.0" defaultValue={props.singleRating.f2pRating} onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}}></input>
+                        <label htmlFor="editGameplay">Gameplay Rating</label>
+                        <input id="editGameplay" type="number" max="10" min="0" step="0.1" name="gameplayRating" onChange={handleOnChange} placeholder="10.0" defaultValue={props.singleRating.gameplayRating} onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}}></input>
+                        <label htmlFor="editF2P">Free to Play Rating</label>
+                        <input id="editF2P" type="number" max="10" min="0" step="0.1" name="f2pRating" onChange={handleOnChange} placeholder="10.0" defaultValue={props.singleRating.f2pRating} onKeyPress={(e) => {if (e.key === 'Enter') {handleOnClick()}}}></input>
                         <p>Currently playing?</p>
                             {radios.inputs}
                         <button className="primary-button" onClick={handleOnClick}>Submit</button>

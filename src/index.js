@@ -22,6 +22,8 @@ import AppNavBar from "./components/AppNavBar";
 import RegisterPage from "./components/RegisterPage";
 import DetailedList_Playing from "./components/DetailedList_Playing";
 import DetailedList_NotPlaying from "./components/DetailedList_NotPlaying";
+import DetailedList_F2P from "./components/DetailedList_F2P";
+import DetailedList_Gameplay from "./components/DetailedList_Gameplay";
 
 // Pages
 import HomePage from "./pages/HomePage";
@@ -79,6 +81,8 @@ ReactDOM.render(
             {/* Detailed List Views */}
             <Route exact path="/detailed/playing" component={requireAuth(DetailedList_Playing)}/>
             <Route exact path="/detailed/not-playing" component={requireAuth(DetailedList_NotPlaying)}/>
+            <Route exact path="/detailed/free-to-play" component={requireAuth(DetailedList_F2P)}/>
+            <Route exact path="/detailed/gameplay" component={requireAuth(DetailedList_Gameplay)}/>
 
             {/* Edit a rating */}
             <Route path="/edit-rating/:id" component={requireAuth(EditRating)} />

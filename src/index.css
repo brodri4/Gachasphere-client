@@ -71,17 +71,23 @@ label {
   color: #0D5059;
 }
 
-/* login and register */
+.message-text {
+  margin: 10px;
+  font-weight: 600;
+  color: #07373B;
+}
+
+/* login, register, and reset */
 .or {
   margin: 0px 5px;
 }
 
-.login-page, .reg-page {
+.login-page, .reg-page, .newPass-page, .reset-page {
   display: grid;
   grid-template-areas: ". main .";
 }
 
-.login-block, .reg-block {
+.login-block, .reg-block, .newPass-block, .reset-block {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,6 +110,10 @@ label {
 .line {
   width: 100px;
   border-color: #123440;
+}
+
+.reset-buttons {
+  margin-top: 30px;
 }
 
 /* buttons */
@@ -134,6 +144,7 @@ label {
   border: none;
   color: #0D5059;
   background-color: #ADFFF5;
+  padding: 20px;
 }
 
 .nav-button {
@@ -154,6 +165,16 @@ label {
 }
 
 /* add rating */
+.add-rating_container {
+  grid-area: add-rating-container;
+  align-self: start;
+  margin: 10px;
+}
+
+.detailed-list-page > .add-rating_container > .secondary-button {
+  margin: 0px 0px 10px 0px;
+}
+
 .add-rating {
   background-color: #85FFF1;
   border-radius: 20px;
@@ -212,6 +233,18 @@ label {
   border-radius: 20px;
 }
 
+.edit-heading {
+  background-color: #ADFFF5;
+  padding: 20px 0px 20px 0px;
+  border-radius: 20px;;
+}
+
+.edit-heading_game-title {
+  margin: 20px;
+  grid-area: heading;
+  font-weight: 700;
+}
+
 /* detailed list views */
 .rating-item, .game-item, .myListPlaying-item, .homepage-item {
   display: flex;
@@ -227,7 +260,7 @@ label {
   display: grid;
   grid-template-areas: 
   "heading heading heading"
-  ". main .";
+  ". main add-rating-container";
   grid-template-columns: .5fr 1fr .5fr;
 }
 
@@ -328,6 +361,28 @@ label {
 .myLists-container {
   display: grid;
   place-items: center;
+  grid-template-areas: 
+  ". list-playing add-rating-container"
+  ". list-not-playing add-rating-container"
+  ". list-f2p ."
+  ". list-gameplay .";
+  grid-template-columns: .5fr 1fr .5fr;
+}
+
+.myLists_playing {
+  grid-area: list-playing;
+}
+
+.myLists_not-playing {
+  grid-area: list-not-playing;
+}
+
+.myLists_f2p {
+  grid-area: list-f2p;
+}
+
+.myLists_gameplay {
+  grid-area: list-gameplay;
 }
 
 .myLists-click {
@@ -405,6 +460,12 @@ label {
   margin-bottom: 20px;
   padding: 10px;
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.homepage_secondary-heading {
+  margin: 10px;
+  font-weight: 600;
+  padding-bottom: 30px;
 }
 
 .homepage_game-title {

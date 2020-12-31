@@ -70,15 +70,27 @@ npm start
 - [nodemailer](https://nodemailer.com/about/)
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
 
-## Accessibility
+## Accessibility, SEO, and Best Practices
 
+### Accessibility - 100 Lighthouse score
 - All colors pass 4+ WCAG contrast tests and are a red/blue color scheme.
 - All navigation and forms are tabbable.
 - Text alternatives for images.
 - Buttons and links have accessible names.
-- Appropriate title, label, and landmark elements.
+- Appropriate title, label, and landmark elements, including descending order headings.
 - No elements or attributes that would limit use by keyboard or screenreader users.
 - Concerted effort to cut down on unneccesary divs, a React/SPA problem.
+
+### SEO - 100 Lighthouse score
+- Has all appropriate meta tags, including keywords and a title element.
+- Links have descriptive text and are crawlable.
+- Page isn't blocked from indexing.
+
+### Best Practices - 100 Lighthouse score
+- Avoids deprecated or vulnerable code.
+- HTML has doc type, lang, and charset.
+- CORS enabled.
+- Avoids notifications on load.
 
 ## Authors
 
