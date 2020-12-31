@@ -46,7 +46,7 @@ function ResetPage(props) {
         setMessage(result.data.message);
       });
     } else {
-      setMessage("your password and confirm password do not match!");
+      setMessage("Password and confirm password do not match!");
     }
   };
 
@@ -102,7 +102,7 @@ function ResetPage(props) {
           </>
         ) : (
           <>
-            <h3>Your request is expired!</h3>
+            <h3>Your request has expired!</h3>
             <div className="reset-buttons">
               <NavLink to="/recover">
                 <button className="primary-button">
