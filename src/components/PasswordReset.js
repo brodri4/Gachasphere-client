@@ -34,8 +34,8 @@ function PasswordReset(props) {
 
   return (
     <div className="reset-page">
+      <h1 className="heading">Send Password Reset Email</h1>
       <div className="reset-block">
-        <h1 className="heading">Send Password Reset Email</h1>
         <h2 className="message-text">{message}</h2>
         <div className="input-block">
           <label className="secondary-text" htmlFor="resetEmail">Email</label>

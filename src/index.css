@@ -28,6 +28,15 @@ tertiary text: #0D5059
   color: #0D5059;
 }
 
+footer {
+  position: relative;
+  bottom: -100px;
+}
+
+.navbar {
+  flex-direction: column;
+}
+
 .logo {
   width: 200px;
 }
@@ -82,9 +91,17 @@ label {
   margin: 0px 5px;
 }
 
-.login-page, .reg-page, .newPass-page, .reset-page {
+.login-page, .reg-page {
   display: grid;
   grid-template-areas: ". main .";
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.reset-page, .newPass-page {
+  display: grid;
+  grid-template-areas: "heading heading heading"
+  ". main .";
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .login-block, .reg-block, .newPass-block, .reset-block {
@@ -94,8 +111,8 @@ label {
   justify-content: space-around;
   background-color: #ADFFF5;
   border-radius: 20px;
-  padding: 40px 50px;
-  margin: 50px 2%;
+  padding: 20px;
+  margin-top: 50px;
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
   grid-area: main;
 }
@@ -114,6 +131,13 @@ label {
 
 .reset-buttons {
   margin-top: 30px;
+}
+
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* buttons */
@@ -167,8 +191,7 @@ label {
 /* add rating */
 .add-rating_container {
   grid-area: add-rating-container;
-  align-self: start;
-  margin: 10px;
+  padding-top: 20px;
 }
 
 .detailed-list-page > .add-rating_container > .secondary-button {
@@ -178,7 +201,11 @@ label {
 .add-rating {
   background-color: #85FFF1;
   border-radius: 20px;
-  padding: 20px;
+}
+
+.add-rating > .heading {
+  padding: 30px 0px 30px 0px;
+  margin-bottom: 0px;
 }
 
 .add-rating label, .add-rating p {
@@ -217,6 +244,10 @@ label {
   margin-left: 125px;
 }
 
+#game {
+  width: 75%;
+}
+
 /* edit page */
 .edit-page {
   display: grid;
@@ -246,7 +277,7 @@ label {
 }
 
 /* detailed list views */
-.rating-item, .game-item, .myListPlaying-item, .homepage-item {
+.myListPlaying-item, .homepage-item {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -256,12 +287,31 @@ label {
   padding: 10px;
 }
 
-.games-page, .detailed-list-page {
+.game-item, .rating-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #47D4E5;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.detailed-list-page {
   display: grid;
   grid-template-areas: 
   "heading heading heading"
-  ". main add-rating-container";
+  ". main ."
+  ". add-rating-container .";
   grid-template-columns: .5fr 1fr .5fr;
+}
+
+.games-page {
+  display: grid;
+  grid-template-areas: 
+  "heading heading heading"
+  ". main .";
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .container_game-items, .container_rating-items {
@@ -284,7 +334,7 @@ label {
 .rating-item_rating {
   margin: 10px 0px 10px 20px;
   padding: 10px 0px 0px 20px;
-  border-left: solid 2px #123440;
+  border-top: solid 2px #123440;
   display: flex;
   flex-direction: column;
 }
@@ -314,14 +364,17 @@ label {
 }
 
 .game-item_right {
-  border-left: solid 2px #123440;
+  border-top: solid 2px #123440;
   display: grid;
-  grid-template-areas: "developer released average-rating"
-  "developer-name release-date average";
-  grid-template-columns: 150px 150px 150px;
-  padding: 20px 0px 20px 20px;
-  column-gap: 10px;
-  row-gap: 10px;
+  grid-template-areas: 
+  "developer"
+  "developer-name"
+  "released"
+  "release-date"
+  "average-rating"
+  "average";
+  grid-template-rows: 50px 50px 50px 50px;
+  padding: 20px 0px 0px 0px;
 }
 
 .developer {
@@ -360,17 +413,25 @@ label {
 /* My Lists & Playing Status*/
 .myLists-container {
   display: grid;
-  place-items: center;
-  grid-template-areas: 
-  ". list-playing add-rating-container"
-  ". list-not-playing add-rating-container"
+  justify-items: center;
+  grid-template-areas:
+  ". add-rating-container ." 
+  ". list-playing ."
+  ". list-not-playing ."
   ". list-f2p ."
   ". list-gameplay .";
+  grid-template-rows: .1fr .5fr .5fr .5fr .5fr;
   grid-template-columns: .5fr 1fr .5fr;
+  row-gap: 40px;
 }
 
 .myLists_playing {
   grid-area: list-playing;
+}
+
+.myLists_playing .heading-button {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .myLists_not-playing {
@@ -391,12 +452,13 @@ label {
 
 .playing-status-container {
   display: flex;
-  width: 700px;
-  height: 250px;
+  flex-direction: column;
+  width: 250px;
+  height: 700px;
   overflow: auto;
   white-space: nowrap;
   border: none;
-  margin: 0 5% 5% 5%;
+  margin: auto;
   border-radius: 15px;
   padding-left: 0;
   box-shadow: 0 6px 20px 0;
@@ -404,10 +466,10 @@ label {
 
 .playing-status_ul {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-left: 0;
   list-style-type: none;
-  padding-left: 30px;
+  padding-left: 20px;
   padding-right: 30px;
 }
 
@@ -511,13 +573,15 @@ label {
 
 .team {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  place-items: center;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .team_card {
   background-color: transparent;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   perspective: 1000px;
   margin: 20px;
 }
@@ -547,12 +611,12 @@ label {
 }
 
 .team_card_inner_front {
-  padding: 50px 20px 20px 20px;
+  padding: 10px;
 }
 
 .team_card_inner_back {
   transform: rotateY(180deg);
-  padding: 80px 20px 20px 20px;
+  padding: 10px;
 }
 
 .image-cropper {
@@ -560,9 +624,9 @@ label {
   height: 100px;
   overflow: hidden;
   border-radius: 50%;
-  margin: 20px;
-  margin-left: 80px;
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+  margin-left: 40px;
+  margin-top: 20px;
 }
 
 .headshot {
@@ -575,10 +639,12 @@ label {
 .team_card_inner_front_name {
   font-weight: 600;
   color: #07373B;
+  padding: 10px;
+  font-size: 1rem;
 }
 
 .linkIcon {
-  width: 40px;
+  width: 30px;
   padding: 5px;
 }
 
@@ -636,3 +702,213 @@ a:hover, a:focus, .nav-button:hover, .nav-button:focus {
 }
 
 /* media queries */
+
+@media screen and (min-width: 300px) {
+  .login-block, .reg-block, .newPass-block, .reset-block {
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .rating-item_rating {
+    flex-direction: column;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  .rating-item_rating_text {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .rating-item_rating_tertiary-text {
+    flex-direction: column;
+  }
+
+  .rating-item_rating_secondary-text {
+    flex-direction: column;
+    padding-top: 5px;
+  }
+
+  .detailed-list_buttons {
+    flex-direction: column;
+    margin-left: 0px;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .rating-item_rating {
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  .detailed-list_buttons {
+    margin-left: 0px;
+  }
+
+  .team_card {
+    width: 300px;
+    height: 300px;
+  }
+
+  .team_card_inner_front {
+    padding-top: 50px;
+  }
+
+  .team_card_inner_front_name {
+    font-size: 1.5rem;
+    padding: 20px;
+  }
+
+  .team_card_inner_back {
+    padding: 30px;
+    padding-top: 60px;
+  }
+
+  .image-cropper {
+    margin-left: 90px;
+  }
+
+  .linkIcon {
+    width: 40px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+
+  .login-block, .reg-block, .newPass-block, .reset-block {
+    padding: 40px 50px;
+  }
+
+  .myLists-container {
+    grid-template-columns: .5fr 1fr .5fr;
+    row-gap: 20px;
+  }
+
+  .playing-status-container {
+    flex-direction: row;
+    width: 500px;
+    height: 250px;
+  }
+
+  .playing-status_ul {
+    flex-direction: row;
+  }
+
+  .add-rating {
+    padding: 20px;
+  }
+
+  .add-rating > .heading {
+    padding: 0px;
+    margin: 20px;
+  }
+
+  .rating-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .rating-item_rating {
+    border-top: none;
+    border-left: solid 2px #123440;
+  }
+}
+
+@media screen and (min-width: 680px) {
+  .team {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: column;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .game-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .game-item_right {
+    border-top: none;
+    border-left: solid 2px #123440;
+    grid-template-areas: "developer released average-rating"
+    "developer-name release-date average";
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 1fr;
+    padding: 20px 0px 20px 20px;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  .detailed-list-page {
+    grid-template-areas: 
+    "heading heading add-rating-container"
+    ". main add-rating-container";
+    grid-template-columns: .5fr 1fr .5fr;
+    column-gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .login-buttons {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .login-block, .reg-block, .newPass-block, .reset-block {
+    padding: 50px 80px;
+  }
+
+  .team {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-auto-flow: row;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  .myLists-container {
+    grid-template-areas: 
+    "list-playing add-rating-container"
+    "list-not-playing add-rating-container"
+    "list-f2p ."
+    "list-gameplay .";
+    grid-template-columns: 1fr .25fr;
+    column-gap: 10px;
+  }
+
+  .add-rating_container {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .playing-status-container {
+    width: 700px;
+  }
+
+  .myLists_playing .heading-button {
+    margin-top: 10px;
+    padding-top: 20px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .myLists-container {
+    grid-template-areas: 
+    ". list-playing add-rating-container"
+    ". list-not-playing add-rating-container"
+    ". list-f2p ."
+    ". list-gameplay .";
+    grid-template-columns: .5fr 1fr .5fr;
+    column-gap: 10px;
+  }
+
+  .team {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-flow: row;
+  }
+}

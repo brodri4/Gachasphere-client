@@ -52,8 +52,8 @@ function ResetPage(props) {
 
   return (
     <div className="newPass-page">
+      <h1 className="heading">Update Your Password</h1>
       <div className="newPass-block">
-        <h1 className="heading">Update Your Password</h1>
         <h2>{message}</h2>
         {!isExpired ? (
           <>
@@ -88,7 +88,7 @@ function ResetPage(props) {
             </div>
             <div className="reset-buttons">
               <button className="primary-button" onClick={handleOnClick}>
-                Update Password
+                Update
               </button>
               <div className="flex-row">
                 <hr className="line"></hr>

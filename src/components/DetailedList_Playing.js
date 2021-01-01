@@ -38,13 +38,15 @@ function DetailedList_Playing(props) {
                             <h2 className="secondary-heading">{rating.Game.title}</h2>
                         </div>
                         <div className="rating-item_rating">
-                            <div className="rating-item_rating_tertiary-text">
-                                <p>Gameplay:</p> 
-                                <p>Free To Play:</p>
-                            </div> 
-                            <div className="rating-item_rating_secondary-text">
-                                <p>{rating.gameplayRating}/10</p> 
-                                <p>{rating.f2pRating}/10</p>
+                            <div className="rating-item_rating_text">
+                                <div className="rating-item_rating_tertiary-text">
+                                    <p>Gameplay:</p> 
+                                    <p>Free To Play:</p>
+                                </div> 
+                                <div className="rating-item_rating_secondary-text">
+                                    <p>{rating.gameplayRating}/10</p> 
+                                    <p>{rating.f2pRating}/10</p>
+                                </div>
                             </div>
                             <div className="detailed-list_buttons">
                                 <NavLink to={generatePath("/edit-rating/:id", {id: rating.id})}><button className="secondary-button">Edit</button></NavLink>

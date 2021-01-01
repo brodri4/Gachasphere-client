@@ -65,7 +65,7 @@ function App(props) {
           <p className="or">or</p>
           <hr className="line"></hr>
         </div>
-        <div className="flex-row">
+        <div className="login-buttons">
           <NavLink to="/register">
             <button className="secondary-button">Register</button>
           </NavLink>
