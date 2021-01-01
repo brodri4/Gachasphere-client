@@ -31,7 +31,7 @@ class AppNavBar extends React.Component {
                 <Container id="header" className='p-0' fluid={true}>
                     <NavBar className='border-bottom' collapseOnSelect bg='transparent' expand='sm'>
                         <NavBar.Brand><Nav.Link as={Link} to='/homepage'><img className="logo" src={logo} alt="GachaSphere Logo" /></Nav.Link></NavBar.Brand>
-                        <Navbar.Toggle className='border-bottom' aria-controls='navbar-toggle' />
+                        <Navbar.Toggle id="NavBar_Toggler" className='border-bottom' aria-controls='NavBar_Toggler' />
                         <NavBar.Collapse id='responsive-navbar-nav' >
                             <Nav className='ml-auto'>
                                 {!this.props.isAuth ? null : <Nav.Link eventKey='1' as={Link} to='/games/all'>Games</Nav.Link>}
