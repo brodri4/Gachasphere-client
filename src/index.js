@@ -72,7 +72,7 @@ ReactDOM.render(
             <Redirect exact from="/" to="/index" />
 
             {/* Pages */}
-            <Route exact path="/game" component={requireAuth(Game)} />
+            <Route exact path="/game/:gameId" component={requireAuth(Game)} />
             <Route exact path="/homepage" component={requireAuth(HomePage)} />
             <Route exact path="/games/all" component={requireAuth(Games)} />
             <Route path="/my-lists" component={requireAuth(MyLists)} />
