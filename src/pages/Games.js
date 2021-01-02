@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { gameActions } from '../store/actions/gameActions';
 
 function Games(props) {
@@ -18,10 +19,11 @@ function Games(props) {
 
         let games = props.games.map(game => {
             let altText = `${game.title} logo`;
+            let gameLink = `/game/${game.id}`
             return ( 
                 <li key={game.id} className="game-item">
                     <div className='game-item_left'>
-                        <img src={game.logo} alt={altText} className="game-item_game_logo" />
+                    <NavLink to={gameLink}><img src={game.logo} alt={altText} className="game-item_game_logo" /></NavLink>
                         <h2 className="secondary-heading">{game.title}</h2>
                     </div>
                     <div className="game-item_right">

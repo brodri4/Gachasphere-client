@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { gameActions } from '../store/actions/gameActions';
 
 function CurrentlyPlaying(props) {
@@ -18,12 +19,15 @@ function CurrentlyPlaying(props) {
         // sort by currently playing
         let ratings = props.gameRatings.map(rating => {
             let altText = `${rating.Game.title} logo`
+            let gameLink = `/game/${rating.GameId}`
             if (rating.playing === true) {
                 return (
                     <li key={rating.id} className="myListPlaying-item">
-                        <div className="rating-item_game">
+                         <NavLink to={gameLink}>
+                             <div className="rating-item_game">
                             <img src={rating.Game.logo} alt={altText} className="rating-item_game_logo" />
                         </div>
+                        </NavLink>
                     </li>
                 )
             }
