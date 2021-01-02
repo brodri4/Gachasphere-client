@@ -33,8 +33,8 @@ footer {
   bottom: -100px;
 }
 
-.navbar {
-  flex-direction: column;
+.nav-link {
+  margin-left: auto;
 }
 
 .logo {
@@ -175,6 +175,7 @@ label {
   border: none;
   color: #0D5059;
   background-color: #47D4E5;
+  margin-left: auto;
 }
 
 .heading-button {
@@ -702,6 +703,16 @@ a:hover, a:focus, .nav-button:hover, .nav-button:focus {
 }
 
 /* media queries */
+
+@media screen and (max-width: 320px) {
+  .navbar-brand {
+    margin-right: 0 !important;
+    width: 79% !important;
+  }
+  .navbar {
+    padding: 0.5rem 0.25rem !important;
+  }
+}
 
 @media screen and (min-width: 300px) {
   .login-block, .reg-block, .newPass-block, .reset-block {
