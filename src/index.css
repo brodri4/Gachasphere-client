@@ -457,7 +457,7 @@ label {
   display: flex;
   flex-direction: column;
   width: 250px;
-  height: 700px;
+  height: 500px;
   overflow: auto;
   white-space: nowrap;
   border: none;
@@ -834,6 +834,12 @@ a:hover, a:focus, .nav-button:hover, .nav-button:focus {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     grid-auto-flow: column;
+  }
+}
+
+@media screen and (min-width: 770px) {
+  .playing-status-container {
+    width: 700px;
   }
 }
 
