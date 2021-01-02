@@ -1,3 +1,3 @@
 export function serverLink() {
-  return "http://localhost:8080";
+  return "https://gachasphere.herokuapp.com";
 }
