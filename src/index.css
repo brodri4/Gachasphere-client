@@ -706,6 +706,12 @@ a:hover, a:focus, .nav-button:hover, .nav-button:focus {
 
 /* media queries */
 
+@media screen and (min-width: 300px) {
+  .login-block, .reg-block, .newPass-block, .reset-block {
+    padding: 30px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .navbar-brand {
     margin-right: 0 !important;
@@ -716,9 +722,13 @@ a:hover, a:focus, .nav-button:hover, .nav-button:focus {
   }
 }
 
-@media screen and (min-width: 300px) {
-  .login-block, .reg-block, .newPass-block, .reset-block {
-    padding: 30px;
+@media screen and (max-width: 449px) {
+  .navbar-brand {
+    margin-right: 0 !important;
+    width: 79% !important;
+  }
+  .navbar {
+    padding: 0.5rem 0.25rem !important;
   }
 }
 
