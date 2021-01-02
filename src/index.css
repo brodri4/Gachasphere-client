@@ -31,6 +31,7 @@ tertiary text: #0D5059
 footer {
   position: relative;
   bottom: -100px;
+  padding: 1.62rem;
 }
 
 .nav-link {
@@ -176,6 +177,7 @@ label {
   color: #0D5059;
   background-color: #47D4E5;
   margin-left: auto;
+  padding: 0.5rem 0rem;
 }
 
 .heading-button {
