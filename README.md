@@ -17,7 +17,7 @@
 Gachasphere was built with the intention of being a central hub for all things mobile gaming. Due to the free-to-play nature of Gacha games, most players are actively playing multiple games at the same time. Unfortunately, the communities for each individual game remain isolated. Gachasphere hopes bridge the gap between existing communities and connect players from all over the world together.
 
 ## Usage
-To start, visit [gachasphere](http://gachasphere.surge.sh), register a new account, log into your existing account, or click the login as guest button. 
+To start, visit [Gachasphere](http://gachasphere.surge.sh), register a new account, log into your existing account, or click the login as guest button. 
 
 Once you're in, you will be able to see the global user rankings for all the top games. From there, you can create your own list of games that you have played. You can give each game a Gameplay rating and a Free-To-Play rating. Each game has it's own dedicated page where you can see more details including popular Reddit threads and Twitter posts from the game's offical account.    
 
