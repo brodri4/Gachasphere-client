@@ -1,4 +1,5 @@
 import axios from "axios";
+import { setAuthenticationHeader } from "../../utils/authenticate";
 import { serverLink } from "../../utils/serverLink";
 
 export const gameService = {
@@ -13,6 +14,9 @@ export const gameService = {
 const link = serverLink();
 
 function createRating(rating) {
+    let JWT = localStorage.getItem('jsonwebtoken');
+    setAuthenticationHeader(JWT);
+
     return axios.post(`${link}/games/create-rating`, {
         gameId: parseFloat(rating.gameId),
         gameplayRating: parseFloat(rating.gameplayRating),
@@ -22,18 +26,30 @@ function createRating(rating) {
 }
 
 function fetchGames() {
+    let JWT = localStorage.getItem('jsonwebtoken');
+    setAuthenticationHeader(JWT);
+
     return axios.get(`${link}/games/`)
 }
 
 function fetchRatings() {
+    let JWT = localStorage.getItem('jsonwebtoken');
+    setAuthenticationHeader(JWT);
+
     return axios.get(`${link}/games/my-ratings`)
 }
 
 function fetchSingleRating(id) {
+    let JWT = localStorage.getItem('jsonwebtoken');
+    setAuthenticationHeader(JWT);
+
     return axios.get(`${link}/games/single-rating/${id}`)
 }
 
 function updateRating(rating) {
+    let JWT = localStorage.getItem('jsonwebtoken');
+    setAuthenticationHeader(JWT);
+
     return axios.post(`${link}/games/update-rating/${rating.ratingId}`, {
         gameId: rating.gameId,
         gameplayRating: rating.gameplayRating,
@@ -43,5 +59,8 @@ function updateRating(rating) {
 }
 
 function deleteRating(id) {
+    let JWT = localStorage.getItem('jsonwebtoken');
+    setAuthenticationHeader(JWT);
+    
     return axios.delete(`${link}/games/delete-rating/${id}`)
 }

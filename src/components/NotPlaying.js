@@ -19,7 +19,7 @@ function NotPlaying(props) {
         // sort by currently playing
         let ratings = props.gameRatings.map(rating => {
             let altText = `${rating.Game.title} logo`
-            let gameLink = `/game/${rating.GameId}`
+            let gameLink = `/game/${rating.GameId}`;
             if (rating.playing === false) {
                 return (
                     <li key={rating.id} className="myListPlaying-item">

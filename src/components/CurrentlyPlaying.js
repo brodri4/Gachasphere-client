@@ -23,8 +23,8 @@ function CurrentlyPlaying(props) {
             if (rating.playing === true) {
                 return (
                     <li key={rating.id} className="myListPlaying-item">
-                         <NavLink to={gameLink}>
-                             <div className="rating-item_game">
+                        <NavLink to={gameLink}>
+                        <div className="rating-item_game">
                             <img src={rating.Game.logo} alt={altText} className="rating-item_game_logo" />
                         </div>
                         </NavLink>

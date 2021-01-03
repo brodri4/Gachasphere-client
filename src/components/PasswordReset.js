@@ -4,6 +4,7 @@ import { userActions } from "../store/actions/userActions";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { serverLink } from "../utils/serverLink";
+import { setAuthenticationHeader } from '../utils/authenticate';
 
 const link = serverLink();
 
@@ -23,6 +24,9 @@ function PasswordReset(props) {
   };
 
   const handleOnClick = () => {
+    let JWT = localStorage.getItem('jsonwebtoken');
+    setAuthenticationHeader(JWT);
+
     axios
       .post(`${link}/user/recover`, {
         email: user.email,
