@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { serverLink } from "../utils/serverLink";
 import Axios from "axios";
 import jwt_decode from "jwt-decode";
+import { setAuthenticationHeader } from '../utils/authenticate';
 
 const link = serverLink();
 
@@ -40,6 +41,10 @@ function ResetPage(props) {
   const handleOnClick = () => {
     if (user.password == user.confirmPassword) {
       const url = `${link}/user/reset/${token}`;
+
+      let JWT = localStorage.getItem('jsonwebtoken');
+      setAuthenticationHeader(JWT);
+
       Axios.post(url, {
         password: user.password,
       }).then((result) => {

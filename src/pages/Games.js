@@ -19,13 +19,13 @@ function Games(props) {
 
         let games = props.games.map(game => {
             let altText = `${game.title} logo`;
-            let gameLink = `/game/${game.id}`
+            let gameLink = `/game/${game.id}`;
             return ( 
                 <li key={game.id} className="game-item">
-                    <div className='game-item_left'>
-                    <NavLink to={gameLink}><img src={game.logo} alt={altText} className="game-item_game_logo" /></NavLink>
+                    <NavLink to={gameLink}><div className='game-item_left'>
+                    <img src={game.logo} alt={altText} className="game-item_game_logo" />
                         <h2 className="secondary-heading">{game.title}</h2>
-                    </div>
+                    </div></NavLink>
                     <div className="game-item_right">
                         <p className="developer">Developer:</p>
                         <p className="released">Released:</p>
