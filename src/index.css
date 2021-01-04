@@ -364,6 +364,13 @@ label {
   font-size: 1.5em;
 }
 
+.empty-detailed-list {
+  display: grid;
+  grid-template-areas: "heading heading heading"
+  ". add-rating-container .";
+  place-items: center;
+}
+
 .detailed-list_buttons {
   display: flex;
   align-items: center;
