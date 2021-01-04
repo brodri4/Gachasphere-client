@@ -11,7 +11,7 @@ function AvgRating(props) {
     if (!props.games || !props.games[0]) {
         return (
             <div>
-                <h1>Loading!</h1>
+                <h1 className="heading">Loading!</h1>
             </div>
         )
     } else {
@@ -30,7 +30,7 @@ function AvgRating(props) {
                         </NavLink>
                         <div className='homepage-item_stat'>
                             <h3 className="homepage_game-title">{games.title}</h3>
-                            <p className="tertiary-text">Average Rating: {games.averageRating}</p>
+                            {games.averageRating && <p className="tertiary-text">Average Rating: {games.averageRating.toFixed(1)}</p>}
                         </div>
                     </li>
                 )

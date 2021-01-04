@@ -12,7 +12,7 @@ function Popularity(props) {
     if (!props.games || !props.games[0]) {
         return (
             <div>
-                <h1>Loading!</h1>
+                <h1 className="heading">Loading!</h1>
             </div>
         )
     } else {

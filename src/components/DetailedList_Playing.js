@@ -22,8 +22,15 @@ function DetailedList_Playing(props) {
 
     if(!props.gameRatings || !props.gameRatings[0]) {
         return (
-            <div>
-                <h1>Create a rating!</h1>
+            <div className="empty-detailed-list">
+                <h1 className="heading">Create a rating!</h1>
+                <div className="add-rating_container">
+                    <button tabIndex="0" onClick={handleOnClick} className="secondary-button">Add Rating</button>
+                    <AddFilter active={activeComponent}>
+                        <AddRating name="AddRating"/>
+                        <div name="nada"></div>
+                    </AddFilter>
+                </div>
             </div>
         )
     } else {
