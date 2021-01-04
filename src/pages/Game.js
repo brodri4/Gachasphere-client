@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Article from './components/Article';
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { TwitterTimelineEmbed } from 'react-twitter-embed'
 import '../index.css'
+import iOS from '../images/appstore.png'
+import Android from '../images/playstore.png'
 
 function Game(props) {
   const gameId = parseInt(useParams().gameId)
@@ -64,6 +66,9 @@ function Game(props) {
             {game.averageRating === null ? null : <p className="average">{game.averageRating.toFixed(1)}/10</p>}
             {game.averageF2P === null ? null : <p className="average-rating">Average F2P Rating:</p>}
             {game.averageF2P === null ? null : <p className="average">{game.averageF2P.toFixed(1)}/10</p>}
+            {game.iOS == null ? null : <a href={game.iOS} target="_blank" ><img src={iOS} className="dl-button2"></img></a>}
+            {game.Android == null ? null : <a href={game.Android} target="_blank" ><img src={Android} className="dl-button"></img></a>}
+
 
           </div>
           <div className="articles">

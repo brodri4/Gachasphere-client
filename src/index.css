@@ -676,6 +676,14 @@ label {
   display: flex;
 }
 
+.dl-button{
+  width: 150px
+}
+
+.dl-button2{
+  width: 130px
+}
+
 /* link styling and animations */
 a:link, a:active, a:visited, .nav-button:link, .nav-button:active, .nav-button:visited {
   color: #0D5059 !important;
