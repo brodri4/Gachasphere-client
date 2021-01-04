@@ -27,6 +27,7 @@ function Game(props) {
   }
 
   const fetchReddit = () => {
+    if(game.reddit){
     fetch("https://www.reddit.com/r/" + game.reddit + "/hot" + ".json").then(
       res => {
         if (res.status !== 200) {
@@ -39,6 +40,9 @@ function Game(props) {
         });
       }
     )
+    }else{
+      return null
+    }
   }
 
   if (!props.games || !props.games[0]) {
@@ -50,7 +54,7 @@ function Game(props) {
   } else {
       let altText = `${props.games.title} logo`
       return (
-        <div class="gameComponent">
+        <div className="gameComponent">
           <div className='articles'>
             <img src={game.logo} alt={altText} className="game-item_game_logo" />
             <h2 className="secondary-heading">{game.title}</h2>
@@ -62,11 +66,11 @@ function Game(props) {
             {game.averageF2P === null ? null : <p className="average">{game.averageF2P.toFixed(1)}/10</p>}
 
           </div>
-          <div class="articles">
+          <div className="articles">
             <h3>Reddit</h3>
             {(articles != null) ? articles.map((article, index) => <Article key={index} article={article.data} />) : ''}
           </div>
-          <div class="articles">
+          <div className="articles">
           <TwitterTimelineEmbed
       sourceType="profile"
       screenName={game.twitter}
