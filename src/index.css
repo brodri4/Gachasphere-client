@@ -706,6 +706,14 @@ label {
   display: flex;
 }
 
+.dl-button{
+  width: 150px
+}
+
+.dl-button2{
+  width: 130px
+}
+
 /* link styling and animations */
 a:link,
 a:active,
