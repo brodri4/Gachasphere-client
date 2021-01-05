@@ -5,6 +5,7 @@ import { gameActions } from '../store/actions/gameActions';
 function EditRating(props) {
     const [localRating, setLocalRating] = useState({});
     const [edited, setEdited] = useState(false)
+    const [invalid, setInvalid] = useState(false);
     
     let id = props.match.params.id;
 
@@ -22,6 +23,7 @@ function EditRating(props) {
             [e.target.name]: e.target.value
         })
         setEdited(false)
+        setInvalid(false)
     }
 
     const handleOnClick = () => {
@@ -46,8 +48,12 @@ function EditRating(props) {
             ratingObj.playing = localRating.playing
         }
 
-        props.updateRating(ratingObj)
-        setEdited(true)
+        if (ratingObj.gameplayRating >= 0 && ratingObj.gameplayRating <= 10 && ratingObj.f2pRating >= 0 && ratingObj.f2pRating <= 10) {
+            props.updateRating(ratingObj)
+            setEdited(true)
+        } else {
+            setInvalid(true)
+        }
     }
 
     if (!props.singleRating || props.singleLoading) {
@@ -82,6 +88,7 @@ function EditRating(props) {
                         <img src={props.singleRating.Game.logo} alt={altText} className="rating-item_game_logo"/>
                         <h2 className="edit-heading_game-title">{props.singleRating.Game.title}</h2>
                     </div>
+                    {invalid && <h2 className="message-text">Please fill out all fields. Ratings must be between 0 and 10.</h2>}
                     {edited && props.ratingUpdated && !props.ratingLoading && <h3 className="message-text">Rating updated!</h3>}
                     {edited && !props.ratingUpdated && !props.ratingLoading && <h3 className="message-text">Something went wrong.</h3>}
                     <div className="input-block">
