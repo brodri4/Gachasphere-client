@@ -79,7 +79,7 @@ npm start
 - Buttons and links have accessible names.
 - Appropriate title, label, and landmark elements, including descending order headings.
 - No elements or attributes that would limit use by keyboard or screenreader users.
-- Concerted effort to cut down on unneccesary divs, a React/SPA problem.
+- Concerted effort to cut down on unnecesary divs, a React/SPA problem.
 
 ### SEO - 100 Lighthouse score
 - Has all appropriate meta tags, including keywords and a title element.
