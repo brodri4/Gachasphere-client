@@ -15,6 +15,7 @@ import Axios from "axios";
 
 function MyLists(props) {
   const [activeComponent, setActiveComponent] = useState("nada");
+  const [updateList, setUpdateList] = useState(false);
 
   const handleOnClick = () => {
     if (activeComponent === "nada") {
@@ -23,18 +24,21 @@ function MyLists(props) {
       setActiveComponent("nada");
     }
   };
+  const updatePlayingStatus = (result, status) => {
+    Axios.post("https://gachasphere.herokuapp.com/games/update-playing", {
+      userGameId: result.draggableId,
+      playing: status,
+    }).then((response) => {
+      setUpdateList(!updateList);
+    });
+  };
   const handleOnDragEnd = (result) => {
-    console.log(result);
-    if (result.destination.droppableId == "notPlaying") {
-      Axios.post("http://localhost:8080/games/update-playing", {
-        userGameId: result.draggableId,
-        playing: false,
-      });
-    } else if (result.destination.droppableId == "playing") {
-      Axios.post("http://localhost:8080/games/update-playing", {
-        userGameId: result.draggableId,
-        playing: true,
-      });
+    if (result.destination.droppableId !== result.source.droppableId) {
+      if (result.destination.droppableId == "notPlaying") {
+        updatePlayingStatus(result, false);
+      } else if (result.destination.droppableId == "playing") {
+        updatePlayingStatus(result, true);
+      }
     }
   };
 
@@ -58,13 +62,13 @@ function MyLists(props) {
           <NavLink to="/detailed/playing">
             <button className="heading-button">Currently Playing</button>
           </NavLink>
-          <CurrentlyPlaying />
+          <CurrentlyPlaying updateListAction={updateList} />
         </div>
         <div className="myLists_not-playing">
           <NavLink to="/detailed/not-playing">
             <button className="heading-button">No Longer Playing</button>
           </NavLink>
-          <NotPlaying />
+          <NotPlaying updateListAction={updateList} />
         </div>
       </DragDropContext>
       <div className="myLists_f2p">

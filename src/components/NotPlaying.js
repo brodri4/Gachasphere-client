@@ -7,7 +7,7 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 function NotPlaying(props) {
   useEffect(() => {
     props.fetchRatings();
-  }, [props.ratingCreated]);
+  }, [props.ratingCreated, props.updateListAction]);
 
   if (!props.gameRatings || !props.gameRatings[0]) {
     return (

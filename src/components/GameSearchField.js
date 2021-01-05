@@ -10,7 +10,7 @@ function GameSearchField() {
     const timeOutId = setTimeout(() => {
       setGameSearch([]);
       axios
-        .post("http://localhost:8080/games/search-game", {
+        .post("https://gachasphere.herokuapp.com/games/search-game", {
           keyword: keyword,
         })
         .then((result) => {
