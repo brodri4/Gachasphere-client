@@ -205,7 +205,7 @@ label {
   font-weight: 700;
   background-color: #e8fffb;
   padding: 20px;
-  margin: 10px;
+  margin: 20px;
   font-size: 2.5em;
   border-radius: 20px;
 }
@@ -473,8 +473,8 @@ label {
 }
 
 .myLists_playing .heading-button {
-  margin-top: 0;
-  padding-top: 0;
+  margin-top: 0px;
+  padding-top: 0px;
 }
 
 .myLists_not-playing {
@@ -694,6 +694,12 @@ label {
   padding: 5px;
 }
 
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
 /* Boris css stuff */
 .articles {
   flex: 0 1 300px;
@@ -730,6 +736,42 @@ label {
   width: 130px
 }
 
+/* Search Bar*/
+.option {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.option img {
+  height: 50px;
+  padding: 5px;
+}
+
+.search-box input {
+  width: 25%;
+  padding: 12px 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  z-index: 100;
+  border-radius: 8px;
+  border: 1px solid;
+  -moz-box-shadow: inset 0 0 2px #083136;
+  -webkit-box-shadow: inset 0 0 2px #083136;
+  box-shadow: inset 0 0 2px #083136;
+}
+
+.search-message {
+  margin: 10px;
+}
+
+.search-link {
+  border-radius: 20px;
+  padding: 10px;
+}
+
 /* link styling and animations */
 a:link,
 a:active,
@@ -748,11 +790,6 @@ a:focus,
   color: #083136 !important;
   font-weight: 600;
   text-decoration: none !important;
-}
-
-.heading-button:focus,
-.heading-button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .rating-item:hover,
@@ -777,8 +814,14 @@ a:focus,
 .game-item_left:hover,
 .game-item_left:focus,
 .rating-item_game:hover,
-.rating-item_game:focus {
+.rating-item_game:focus,
+.search-link:hover,
+.search-link:focus {
   background-color: #94e7f0;
+}
+
+.heading-button:focus, .heading-button:hover {
+  background-color: #c2fff8;
 }
 
 .primary-button:hover,
@@ -811,33 +854,6 @@ a:focus,
 
 a h2 {
   color: #083136;
-}
-
-/* Search Bar*/
-.option {
-  margin-top: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.option img {
-  height: 50px;
-  margin-right: 10px;
-}
-
-.search-box input {
-  width: 25%;
-  padding: 12px 16px;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  z-index: 100;
-  border-radius: 8px 8px 0 0;
-  border: 1px solid;
-}
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  height: 60px;
 }
 
 /* media queries */
@@ -1054,6 +1070,11 @@ a h2 {
     column-gap: 10px;
   }
 
+  .myLists_playing .heading-button {
+    padding: 20px;
+    margin: 20px;
+  }
+
   .add-rating_container {
     margin-right: 10px;
     margin-left: 10px;
@@ -1063,10 +1084,6 @@ a h2 {
     width: 700px;
   }
 
-  .myLists_playing .heading-button {
-    margin-top: 10px;
-    padding-top: 20px;
-  }
 }
 
 @media screen and (min-width: 1400px) {
