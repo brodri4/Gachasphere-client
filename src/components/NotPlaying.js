@@ -59,6 +59,7 @@ function NotPlaying(props) {
             {...provided.droppableProps}
           >
             <ul className="playing-status_ul">{ratings}</ul>
+            {provided.placeholder}
           </div>
         )}
       </Droppable>

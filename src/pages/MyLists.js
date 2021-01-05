@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 import FreeToPlayMyLists from "../components/FreeToPlay_MyLists";
 import GameplayMyLists from "../components/Gameplay_MyLists";
 import { DragDropContext } from "react-beautiful-dnd";
+import Axios from "axios";
 
 // fake data generator
 
@@ -20,6 +21,20 @@ function MyLists(props) {
       setActiveComponent("AddRating");
     } else if (activeComponent === "AddRating") {
       setActiveComponent("nada");
+    }
+  };
+  const handleOnDragEnd = (result) => {
+    console.log(result);
+    if (result.destination.droppableId == "notPlaying") {
+      Axios.post("http://localhost:8080/games/update-playing", {
+        userGameId: result.draggableId,
+        playing: false,
+      });
+    } else if (result.destination.droppableId == "playing") {
+      Axios.post("http://localhost:8080/games/update-playing", {
+        userGameId: result.draggableId,
+        playing: true,
+      });
     }
   };
 
@@ -38,7 +53,7 @@ function MyLists(props) {
           <div name="nada"></div>
         </AddFilter>
       </div>
-      <DragDropContext>
+      <DragDropContext onDragEnd={handleOnDragEnd}>
         <div className="myLists_playing">
           <NavLink to="/detailed/playing">
             <button className="heading-button">Currently Playing</button>
