@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { gameActions } from '../store/actions/gameActions';
 import { generatePath, NavLink } from 'react-router-dom';
+
+// Components
+import GameSearchField from "../components/GameSearchField";
 import AddFilter from '../components/AddFilter';
 import AddRating from '../components/AddRating';
 
@@ -80,6 +83,7 @@ function DetailedList_Playing(props) {
                         <AddRating name="AddRating"/>
                         <div name="nada"></div>
                     </AddFilter>
+                    <GameSearchField />
                 </div>
             </div>
         )
