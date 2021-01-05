@@ -1,9 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { gameActions } from '../store/actions/gameActions';
 
+// Components
+import GameSearchField from "../components/GameSearchField";
+import AddRating from "../components/AddRating";
+import AddFilter from "../components/AddFilter";
+
 function Games(props) {
+    const [activeComponent, setActiveComponent] = useState("nada");
+
+    const handleOnClick = () => {
+        if (activeComponent === "nada") {
+            setActiveComponent("AddRating");
+        } else if (activeComponent === "AddRating") {
+            setActiveComponent("nada");
+        }
+    };
+
     useEffect(() => {
         props.fetchGames()
     }, [])
@@ -20,10 +35,10 @@ function Games(props) {
         let games = props.games.map(game => {
             let altText = `${game.title} logo`;
             let gameLink = `/game/${game.id}`;
-            return ( 
+            return (
                 <li key={game.id} className="game-item">
                     <NavLink to={gameLink}><div className='game-item_left'>
-                    <img src={game.logo} alt={altText} className="game-item_game_logo" />
+                        <img src={game.logo} alt={altText} className="game-item_game_logo" />
                         <h2 className="secondary-heading">{game.title}</h2>
                     </div></NavLink>
                     <div className="game-item_right">
@@ -41,6 +56,20 @@ function Games(props) {
         return (
             <div className="games-page">
                 <h1 className="heading">All Games</h1>
+                <div className="add-rating_container">
+                    <button
+                        tabIndex="0"
+                        onClick={handleOnClick}
+                        className="secondary-button"
+                    >
+                        Add Rating
+                    </button>
+                    <AddFilter active={activeComponent}>
+                        <AddRating name="AddRating" />
+                        <div name="nada"></div>
+                    </AddFilter>
+                    <GameSearchField />
+                </div>
                 <ul className="container_game-items">
                     {games}
                 </ul>

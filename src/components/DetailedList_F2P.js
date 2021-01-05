@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { generatePath, NavLink } from 'react-router-dom';
 import { gameActions } from '../store/actions/gameActions';
+
+// Components
+import GameSearchField from "../components/GameSearchField";
 import AddFilter from '../components/AddFilter';
 import AddRating from '../components/AddRating';
 
@@ -76,6 +79,7 @@ function DetailedList_F2P(props) {
                         <AddRating name="AddRating"/>
                         <div name="nada"></div>
                     </AddFilter>
+                    <GameSearchField />
                 </div>
             </div>
         )

@@ -10,6 +10,7 @@ import FreeToPlayMyLists from "../components/FreeToPlay_MyLists";
 import GameplayMyLists from "../components/Gameplay_MyLists";
 import { DragDropContext } from "react-beautiful-dnd";
 import Axios from "axios";
+import GameSearchField from "../components/GameSearchField";
 
 // fake data generator
 
@@ -56,6 +57,7 @@ function MyLists(props) {
           <AddRating name="AddRating" />
           <div name="nada"></div>
         </AddFilter>
+        <GameSearchField />
       </div>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <div className="myLists_playing">
