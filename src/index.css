@@ -696,14 +696,30 @@ label {
 
 /* Boris css stuff */
 .articles {
-  height: 500px;
-  width: 250px;
+  flex: 0 1 300px;
+  margin: 15px;
+}
+
+.articles_secondary-heading {
+  margin: 10px;
+  font-weight: 600;
+  padding-bottom: 30px;
+}
+
+.articles_game-details-list {
+  height: 100%;
+}
+
+.articles_list {
   overflow: auto;
-  margin: 20px 20px 20px 20px;
+  height: 600px;
 }
 
 .gameComponent {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style-type: none;
 }
 
 .dl-button{
