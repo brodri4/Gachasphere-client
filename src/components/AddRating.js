@@ -36,7 +36,7 @@ function AddRating(props) {
             ratingObj.playing = playingRadio.current.value;
         }
 
-        if (ratingObj.gameplayRating && ratingObj.f2pRating) {
+        if (ratingObj.gameplayRating >= 0 && ratingObj.gameplayRating <= 10 && ratingObj.f2pRating >= 0 && ratingObj.f2pRating <= 10) {
             props.createRating(ratingObj);
         } else {
             setInvalid(true)
@@ -59,7 +59,7 @@ function AddRating(props) {
                 <h1 className="heading">Add Rating</h1>
                 {props.ratingCreated && !props.ratingExists && <h2 className="message-text">Rating created!</h2>}
                 {props.ratingCreated === false && !props.ratingExists && <h2 className="message-text">Something went wrong.</h2>}
-                {invalid && <h2 className="message-text">Please fill out all fields.</h2>}
+                {invalid && <h2 className="message-text">Please fill out all fields. Ratings must be between 0 and 10.</h2>}
                 {props.ratingExists && <h2 className="message-text">Rating already exists.</h2>}
                 <div className="add-rating_input-block">
                     <label htmlFor="game">Game</label>
