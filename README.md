@@ -79,6 +79,8 @@ npm start
 - [JSON Web Token](https://www.npmjs.com/package/jsonwebtoken)
 - [nodemailer](https://nodemailer.com/about/)
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
+- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
+- [react-twitter-embed](https://www.npmjs.com/package/react-twitter-embed)
 
 ## Accessibility, SEO, and Best Practices
 
