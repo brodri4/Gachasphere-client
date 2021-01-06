@@ -8,7 +8,7 @@ function ListGames(props) {
   const listId = parseInt(useParams().listId);
   const fetchGameList = async () => {
     let list = await axios.get(
-      `http://localhost:8080/lists/gameList/${listId}`
+      `https://gachasphere.herokuapp.com/lists/gameList/${listId}`
     );
 
     console.log(list.data);
