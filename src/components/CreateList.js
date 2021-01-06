@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import history from "../utils/history";
 
 function CreateList(props) {
   const [listName, setListName] = useState({});
@@ -12,7 +13,13 @@ function CreateList(props) {
   };
 
   const handleOnSubmit = () => {
-    axios.post("http://localhost:8080/lists/list-create", listName);
+    axios
+      .post("https://gachasphere.herokuapp.com/lists/list-create", listName)
+      .then((result) => {
+        if (result.data.listCreated) {
+          history.push(`/my-shared-list/${result.data.listId}`);
+        }
+      });
   };
 
   return (

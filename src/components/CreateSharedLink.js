@@ -6,7 +6,7 @@ function CreateSharedLink(props) {
       {props.sharedLink ? (
         <div className="add-rating">
           <h4>Shared Link</h4>
-          <p>http://localhost:3000/#/list/{props.listId}</p>
+          <p>https://gachasphere.herokuapp.com/#/list/{props.listId}</p>
         </div>
       ) : null}
     </div>

@@ -15,7 +15,10 @@ function AddGameToList(props) {
   const addGameToList = (gameAddObj) => {
     console.log(gameAddObj);
     axios
-      .post("http://localhost:8080/lists/add-game-to-list", gameAddObj)
+      .post(
+        "https://gachasphere.herokuapp.com/lists/add-game-to-list",
+        gameAddObj
+      )
       .then((result) => {
         if (result.data.gameAdded) {
           props.fetchGameList();
