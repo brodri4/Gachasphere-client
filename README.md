@@ -23,6 +23,8 @@ Once you're in, you will be able to see the global user rankings for all the top
 
 ## Videos and Screenshots
 
+[![Gachasphere Walkthrough Video](http://img.youtube.com/vi/sWotwScHFTo/0.jpg)](http://www.youtube.com/watch?v=sWotwScHFTo "Gachasphere Walkthrough")
+
 ## Getting Started
 
 To set up a local copy of the project follow the steps below. Be sure to follow the instructions in the [server-side repository](https://github.com/brodri4/Gachasphere-api) as well.
