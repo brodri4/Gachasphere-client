@@ -34,9 +34,6 @@ function fetchGames() {
 }
 
 function fetchlistGames(id) {
-  let JWT = localStorage.getItem("jsonwebtoken");
-  setAuthenticationHeader(JWT);
-
   return axios.get(`http://localhost:8080/lists/gameList/${id}`);
 }
 

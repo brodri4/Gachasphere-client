@@ -77,7 +77,7 @@ ReactDOM.render(
             <Route exact path="/games/all" component={requireAuth(Games)} />
             <Route path="/my-lists" component={requireAuth(MyLists)} />
             <Route path="/profile" component={requireAuth(Profile)} />
-            <Route path="/list/:listId" component={requireAuth(ListGames)} />
+            <Route path="/list/:listId" component={ListGames} />
 
             {/* Detailed List Views */}
             <Route
