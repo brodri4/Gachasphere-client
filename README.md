@@ -23,6 +23,16 @@ Once you're in, you will be able to see the global user rankings for all the top
 
 ## Videos and Screenshots
 
+Click below to see Boris demo Gachasphere:
+
+[![Gachasphere Walkthrough Video](http://img.youtube.com/vi/sWotwScHFTo/0.jpg)](http://www.youtube.com/watch?v=sWotwScHFTo "Gachasphere Walkthrough")
+
+
+<img src="./src/images/gachasphereMobile.gif" width="375" alt="Gachasphere Mobile Walkthrough"/>
+
+
+<img src="./src/images/emailScreenshot.png" width="600" alt="Gachasphere Forgot Password Email"/>
+
 ## Getting Started
 
 To set up a local copy of the project follow the steps below. Be sure to follow the instructions in the [server-side repository](https://github.com/brodri4/Gachasphere-api) as well.
