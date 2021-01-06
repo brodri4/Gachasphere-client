@@ -29,7 +29,7 @@ class AppNavBar extends React.Component {
         return (
 
                 <Container id="header" className='p-0' fluid={true}>
-                    <NavBar className='border-bottom' collapseOnSelect bg='transparent' expand='sm'>
+                    <NavBar className='border-bottom' collapseOnSelect bg='transparent' expand='md'>
                         <NavBar.Brand><Nav.Link as={Link} to='/homepage'><img className="logo" src={logo} alt="GachaSphere Logo" /></Nav.Link></NavBar.Brand>
                         <Navbar.Toggle id="NavBar_Toggler" className='border-bottom' aria-controls='NavBar_Toggler' />
                         <NavBar.Collapse id='responsive-navbar-nav' >

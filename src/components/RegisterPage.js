@@ -54,8 +54,8 @@ function RegisterPage(props) {
 
 const mapStateToProps = (state) => {
     return {
-        registerFailed: state.userR.loginFailed,
-        registerLoading: state.userR.loginLoading,
+        registerFailed: state.userR.registerFailed,
+        registerLoading: state.userR.registerLoading,
         message: state.userR.message
     }
 }

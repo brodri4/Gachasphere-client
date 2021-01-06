@@ -12,6 +12,7 @@ import { DragDropContext } from "react-beautiful-dnd";
 import Axios from "axios";
 import CreateList from "../components/CreateList";
 import AllSharedLists from "../components/AllSharedLists";
+import GameSearchField from "../components/GameSearchField";
 
 // fake data generator
 
@@ -70,6 +71,7 @@ function MyLists(props) {
           <div name="nada"></div>
         </AddFilter>
         <CreateList isActive={acticeCreateList} />
+        <GameSearchField />
       </div>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <div className="myLists_playing">

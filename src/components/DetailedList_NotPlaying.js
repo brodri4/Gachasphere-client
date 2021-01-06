@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { generatePath, NavLink } from 'react-router-dom';
 import { gameActions } from '../store/actions/gameActions';
-import AddRating from '../components/AddRating';
+
+// Components
+import GameSearchField from "../components/GameSearchField";
 import AddFilter from '../components/AddFilter';
+import AddRating from '../components/AddRating';
 
 function DetailedList_NotPlaying(props) {
     const [activeComponent, setActiveComponent] = useState("nada")
@@ -78,6 +81,7 @@ function DetailedList_NotPlaying(props) {
                         <AddRating name="AddRating"/>
                         <div name="nada"></div>
                     </AddFilter>
+                    <GameSearchField />
                 </div>
             </div>
         )

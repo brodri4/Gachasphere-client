@@ -23,7 +23,7 @@ function GameSearchField() {
     <div className="search-box">
       <input
         className="input"
-        placeholder="Please enter your game"
+        placeholder="Search a game"
         onChange={(e) => setKeyWord(e.target.value)}
         name="keyword"
       ></input>
