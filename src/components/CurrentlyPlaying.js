@@ -51,7 +51,7 @@ function CurrentlyPlaying(props) {
     });
 
     return (
-      <Droppable droppableId="playing">
+      <Droppable droppableId="playing" direction="horizontal">
         {(provided) => (
           <div
             className="playing-status-container"

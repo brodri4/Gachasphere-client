@@ -32,10 +32,10 @@ import Profile from "./pages/Profile";
 import MyLists from "./pages/MyLists";
 import PasswordReset from "./components/PasswordReset";
 import ResetPage from "./components/ResetPage";
-import Game from './pages/Game';
+import Game from "./pages/Game";
 import EditRating from "./components/EditRating";
 import About from "./pages/About";
-
+import ListGames from "./pages/ListGames";
 
 const persistConfig = {
   key: "root",
@@ -77,19 +77,38 @@ ReactDOM.render(
             <Route exact path="/games/all" component={requireAuth(Games)} />
             <Route path="/my-lists" component={requireAuth(MyLists)} />
             <Route path="/profile" component={requireAuth(Profile)} />
+            <Route path="/list/:listId" component={requireAuth(ListGames)} />
 
             {/* Detailed List Views */}
-            <Route exact path="/detailed/playing" component={requireAuth(DetailedList_Playing)}/>
-            <Route exact path="/detailed/not-playing" component={requireAuth(DetailedList_NotPlaying)}/>
-            <Route exact path="/detailed/free-to-play" component={requireAuth(DetailedList_F2P)}/>
-            <Route exact path="/detailed/gameplay" component={requireAuth(DetailedList_Gameplay)}/>
+            <Route
+              exact
+              path="/detailed/playing"
+              component={requireAuth(DetailedList_Playing)}
+            />
+            <Route
+              exact
+              path="/detailed/not-playing"
+              component={requireAuth(DetailedList_NotPlaying)}
+            />
+            <Route
+              exact
+              path="/detailed/free-to-play"
+              component={requireAuth(DetailedList_F2P)}
+            />
+            <Route
+              exact
+              path="/detailed/gameplay"
+              component={requireAuth(DetailedList_Gameplay)}
+            />
 
             {/* Edit a rating */}
-            <Route path="/edit-rating/:id" component={requireAuth(EditRating)} />
+            <Route
+              path="/edit-rating/:id"
+              component={requireAuth(EditRating)}
+            />
 
             {/* About page */}
-            <Route exact path="/about" component={About}/>
-        
+            <Route exact path="/about" component={About} />
           </Switch>
           <Footer />
         </HashRouter>

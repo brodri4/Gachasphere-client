@@ -51,7 +51,7 @@ function NotPlaying(props) {
     });
 
     return (
-      <Droppable droppableId="notPlaying">
+      <Droppable droppableId="notPlaying" direction="horizontal">
         {(provided) => (
           <div
             className="playing-status-container"
