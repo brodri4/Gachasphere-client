@@ -10,11 +10,14 @@ import FreeToPlayMyLists from "../components/FreeToPlay_MyLists";
 import GameplayMyLists from "../components/Gameplay_MyLists";
 import { DragDropContext } from "react-beautiful-dnd";
 import Axios from "axios";
+import CreateList from "../components/CreateList";
+import AllSharedLists from "../components/AllSharedLists";
 
 // fake data generator
 
 function MyLists(props) {
   const [activeComponent, setActiveComponent] = useState("nada");
+  const [acticeCreateList, setActiveCreateList] = useState(false);
   const [updateList, setUpdateList] = useState(false);
 
   const handleOnClick = () => {
@@ -41,6 +44,9 @@ function MyLists(props) {
       }
     }
   };
+  const handleOnCreateList = () => {
+    setActiveCreateList(!acticeCreateList);
+  };
 
   return (
     <div className="myLists-container">
@@ -52,10 +58,18 @@ function MyLists(props) {
         >
           Add Rating
         </button>
+        <button
+          tabIndex="0"
+          onClick={handleOnCreateList}
+          className="secondary-button"
+        >
+          Create List
+        </button>
         <AddFilter active={activeComponent}>
           <AddRating name="AddRating" />
           <div name="nada"></div>
         </AddFilter>
+        <CreateList isActive={acticeCreateList} />
       </div>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <div className="myLists_playing">
@@ -71,6 +85,10 @@ function MyLists(props) {
           <NotPlaying updateListAction={updateList} />
         </div>
       </DragDropContext>
+      {/* <div className="All_List">
+        <button className="heading-button">My Lists</button>
+        <AllSharedLists />
+      </div> */}
       <div className="myLists_f2p">
         <NavLink to="/detailed/free-to-play">
           <button className="heading-button">Sorted by Free To Play</button>

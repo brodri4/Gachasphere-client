@@ -393,8 +393,9 @@ label {
 
 .empty-detailed-list {
   display: grid;
-  grid-template-areas: "heading heading heading"
-  ". add-rating-container .";
+  grid-template-areas:
+    "heading heading heading"
+    ". add-rating-container .";
   place-items: center;
 }
 
@@ -722,12 +723,12 @@ label {
   list-style-type: none;
 }
 
-.dl-button{
-  width: 150px
+.dl-button {
+  width: 150px;
 }
 
-.dl-button2{
-  width: 130px
+.dl-button2 {
+  width: 130px;
 }
 
 /* link styling and animations */

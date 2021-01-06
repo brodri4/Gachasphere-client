@@ -36,6 +36,7 @@ import Game from "./pages/Game";
 import EditRating from "./components/EditRating";
 import About from "./pages/About";
 import ListGames from "./pages/ListGames";
+import MysharedList from "./components/MysharedList";
 
 const persistConfig = {
   key: "root",
@@ -77,6 +78,10 @@ ReactDOM.render(
             <Route exact path="/games/all" component={requireAuth(Games)} />
             <Route path="/my-lists" component={requireAuth(MyLists)} />
             <Route path="/profile" component={requireAuth(Profile)} />
+            <Route
+              path="/my-shared-list/:listId"
+              component={requireAuth(MysharedList)}
+            />
             <Route path="/list/:listId" component={ListGames} />
 
             {/* Detailed List Views */}
