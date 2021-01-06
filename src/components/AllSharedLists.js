@@ -1,36 +1,39 @@
-import React, { useEffect } from "react";
+import Axios from "axios";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { gameActions } from "../store/actions/gameActions";
+import logo from "../images/favicon.ico";
 
 function AllSharedLists(props) {
+  const [gamesList, setGamesList] = useState({ status: true });
   useEffect(() => {
-    props.fetchRatings();
-  }, [props.ratingCreated]);
+    fetchAllList();
+  }, []);
 
-  if (!props.gameRatings || !props.gameRatings[0]) {
+  const fetchAllList = async () => {
+    let lists = await Axios.get("http://localhost:8080/lists/get-all-list");
+    console.log(lists);
+    setGamesList(lists.data.all_List);
+    console.log(gamesList);
+  };
+  if (gamesList.status) {
     return (
       <div>
-        <h1>Create a rating!</h1>
+        <h1>Create a List!</h1>
       </div>
     );
   } else {
-    let sortedRating = props.gameRatings.sort(
-      (a, b) => b.f2pRating - a.f2pRating
-    );
-    let ratings = sortedRating.map((rating) => {
-      let altText = `${rating.Game.title} logo`;
-      let gameLink = `/game/${rating.GameId}`;
+    let ratings = gamesList.map((rating) => {
+      let altText = `${rating.Name} logo`;
+      let gameLink = `/my-shared-list/${rating.id}`;
       return (
         <li key={rating.id} className="myListPlaying-item">
           <NavLink to={gameLink}>
             <div className="rating-item_game">
-              <img
-                src={rating.Game.logo}
-                alt={altText}
-                className="rating-item_game_logo"
-              />
+              <img src={logo} alt={altText} className="rating-item_game_logo" />
             </div>
+            <p>{rating.Name}</p>
           </NavLink>
         </li>
       );

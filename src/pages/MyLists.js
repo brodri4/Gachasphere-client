@@ -85,10 +85,10 @@ function MyLists(props) {
           <NotPlaying updateListAction={updateList} />
         </div>
       </DragDropContext>
-      {/* <div className="All_List">
+      <div className="All_List">
         <button className="heading-button">My Lists</button>
         <AllSharedLists />
-      </div> */}
+      </div>
       <div className="myLists_f2p">
         <NavLink to="/detailed/free-to-play">
           <button className="heading-button">Sorted by Free To Play</button>

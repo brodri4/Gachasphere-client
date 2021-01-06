@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { generatePath, NavLink } from "react-router-dom";
 import AddFilter from "../components/AddFilter";
-import AddRating from "../components/AddRating";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import AddGameToList from "./AddGameToList";
@@ -47,7 +46,6 @@ function Mysharedlist(props) {
   }, []);
 
   if (gamesList.status) {
-    console.log(gamesList);
     return (
       <div className="empty-detailed-list">
         <h1 className="heading">Create a rating!</h1>

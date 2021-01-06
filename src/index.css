@@ -463,12 +463,16 @@ label {
     ". list-playing ."
     ". list-not-playing ."
     ". list-f2p ."
-    ". list-gameplay .";
+    ". list-gameplay ."
+    ". All_List .";
   grid-template-rows: 0.1fr 0.5fr 0.5fr 0.5fr 0.5fr;
   grid-template-columns: 0.5fr 1fr 0.5fr;
   row-gap: 40px;
 }
 
+.All_List {
+  grid-area: All_List;
+}
 .myLists_playing {
   grid-area: list-playing;
 }
@@ -1050,7 +1054,8 @@ a h2 {
       "list-playing add-rating-container"
       "list-not-playing add-rating-container"
       "list-f2p ."
-      "list-gameplay .";
+      "list-gameplay ."
+      "All_List .";
     grid-template-columns: 1fr 0.25fr;
     column-gap: 10px;
   }
@@ -1076,7 +1081,8 @@ a h2 {
       ". list-playing add-rating-container"
       ". list-not-playing add-rating-container"
       ". list-f2p ."
-      ". list-gameplay .";
+      ". list-gameplay ."
+      ". All_List .";
     grid-template-columns: 0.5fr 1fr 0.5fr;
     column-gap: 10px;
   }
