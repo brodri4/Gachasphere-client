@@ -695,6 +695,10 @@ label {
   padding: 10px;
 }
 
+.boris-back-text {
+  font-size: .9rem;
+}
+
 .image-cropper {
   width: 100px;
   height: 100px;

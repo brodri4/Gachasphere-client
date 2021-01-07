@@ -26,7 +26,7 @@ function AboutTeam() {
             </h4>
           </div>
           <div className="team_card_inner_back">
-            <p>
+            <p className="boris-back-text">
               Boris is a Mobile Gaming Influencer turned Software Developer
               looking to create innovative and exciting applications.
             </p>
