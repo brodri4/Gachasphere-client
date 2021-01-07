@@ -884,7 +884,9 @@ a:focus,
 .myListPlaying-item:hover,
 .myListPlaying-item:focus,
 .homepage-item:hover,
-.homepage-item:focus {
+.homepage-item:focus, 
+.shared-list-item:hover,
+.shared-list-item:focus {
   box-shadow: -6px 0px 1px 0px #fcb07e, 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
 }
 
