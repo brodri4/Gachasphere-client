@@ -4,8 +4,8 @@ function CreateSharedLink(props) {
   return (
     <div>
       {props.sharedLink ? (
-        <div className="add-rating">
-          <h4>Shared Link</h4>
+        <div className="create-share-link">
+          <h4>Share Link</h4>
           <p>http://gachasphere.surge.sh/#/list/{props.listId}</p>
         </div>
       ) : null}
