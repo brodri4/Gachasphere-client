@@ -20,7 +20,7 @@ function AboutTeam() {
                         <h4 className="team_card_inner_front_name">Borinquen "Boris" Rodriguez</h4>
                     </div>
                     <div className="team_card_inner_back">
-                        <p>Boris is a Mobile Gaming Influencer turned Software Developer looking to create innovative and exciting applications.</p>
+                        <p className="boris-back-text">Boris is a Mobile Gaming Influencer turned Software Developer looking to create innovative and exciting applications.</p>
                         <a href="https://www.linkedin.com/in/brodri4/" target="_blank" rel="noreferrer"><LinkedinLogo className="linkIcon" alt="LinkedIn logo link to LinkedIn profile"/></a> 
                         <a href="https://github.com/brodri4" target="_blank" rel="noreferrer"><GithubLogo className="linkIcon" alt="Github logo link to github profile"/></a>
                         <a href="http://borinquen-rodriguez-portfolio.surge.sh/" target="_blank" rel="noreferrer"><ChromeLogo className="linkIcon" alt="Chrome logo link to portfolio"/></a>
