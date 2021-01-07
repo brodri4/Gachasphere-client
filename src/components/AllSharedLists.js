@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { gameActions } from "../store/actions/gameActions";
 import logo from "../images/favicon.ico";
+import { setAuthenticationHeader } from "../utils/authenticate";
 
 function AllSharedLists(props) {
   const [gamesList, setGamesList] = useState({ status: true });
@@ -12,9 +13,9 @@ function AllSharedLists(props) {
   }, []);
 
   const fetchAllList = async () => {
-    let lists = await Axios.get(
-      "https://gachasphere.herokuapp.com/lists/get-all-list"
-    );
+    let JWT = localStorage.getItem("jsonwebtoken");
+    setAuthenticationHeader(JWT);
+    let lists = await Axios.get("http://localhost:8080/lists/get-all-list");
     console.log(lists);
     setGamesList(lists.data.all_List);
     console.log(gamesList);
