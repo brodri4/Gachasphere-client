@@ -317,7 +317,7 @@ label {
 }
 
 .game-item,
-.rating-item {
+.rating-item, .shared-list-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -360,7 +360,7 @@ label {
 }
 
 .rating-item_game,
-.game-item_left {
+.game-item_left, .shared-list-item_game {
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -374,7 +374,7 @@ label {
 }
 
 .rating-item_game_logo,
-.game-item_game_logo {
+.game-item_game_logo, .shared-list-item_game_logo {
   width: 100px;
   margin: 5px;
 }
@@ -812,6 +812,48 @@ label {
   padding: 10px;
 }
 
+/* share list */
+.create-share-link {
+  background-color: #85fff1;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.shared-list-item_rating {
+  border-top: solid 2px #123440;
+  display: grid;
+  grid-template-areas:
+    "gameplay"
+    "gameplay_num"
+    "f2p"
+    "f2p_num"
+    "shared-delete";
+  grid-template-rows: 50px 50px 50px 50px;
+  padding: 20px 0px 0px 0px;
+  margin-left: 5px;
+}
+
+.shared-list_gameplay {
+  grid-area: gameplay;
+}
+
+.shared-list_f2p {
+  grid-area: f2p;
+}
+
+.shared-list_gameplay_number {
+  grid-area: gameplay_num;
+}
+
+.shared-list_f2p_number {
+  grid-area: f2p_num;
+}
+
+#shared-list_delete {
+  grid-area: shared-delete;
+}
+
 /* link styling and animations */
 a:link,
 a:active,
@@ -1144,7 +1186,7 @@ a h2 {
 }
 
 @media screen and (min-width: 900px) {
-  .game-item {
+  .game-item, .shared-list-item {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
@@ -1161,6 +1203,39 @@ a h2 {
     padding: 20px 0px 20px 20px;
     column-gap: 10px;
     row-gap: 10px;
+  }
+
+  .shared-list_gameplay {
+    align-self: end;
+  }
+  
+  .shared-list_f2p {
+    align-self: end;
+  }
+  
+  .shared-list_gameplay_number {
+    align-self: start;
+  }
+  
+  .shared-list_f2p_number {
+    align-self: start;
+  }
+
+  #shared-list_delete {
+    align-self: center;
+  }
+  
+  .shared-list-item_rating {
+    border-top: none;
+    border-left: solid 2px #123440;
+    grid-template-areas:
+      "gameplay f2p shared-delete"
+      "gameplay_num f2p_num shared-delete";
+    grid-template-columns: 1fr 1fr .5fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 10px 0px 10px 10px;
+    column-gap: 10px;
+    align-items: end;
   }
 
   .detailed-list-page {
@@ -1222,6 +1297,21 @@ a h2 {
     width: 700px;
   }
 
+}
+
+@media screen and (min-width: 1300px) {
+
+  .shared-list-item_rating {
+    border-top: none;
+    border-left: solid 2px #123440;
+    grid-template-areas:
+      "gameplay f2p shared-delete"
+      "gameplay_num f2p_num shared-delete";
+    grid-template-columns: 1fr 1fr .5fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 10px 0px 10px 10px;
+    column-gap: 10px;
+  }
 }
 
 @media screen and (min-width: 1400px) {

@@ -79,37 +79,31 @@ function Mysharedlist(props) {
         let gameLink = `/game/${rating.game.id}`;
         if (true) {
           return (
-            <li key={rating.GameId} className="rating-item">
+            <li key={rating.GameId} className="shared-list-item">
               <NavLink to={gameLink}>
-                <div className="rating-item_game">
+                <div className="shared-list-item_game">
                   <img
                     src={rating.game.logo}
                     alt={altText}
-                    className="rating-item_game_logo"
+                    className="shared-list-item_game_logo"
                   />
                   <h2 className="secondary-heading">{rating.game.title}</h2>
                 </div>
               </NavLink>
-              <div className="rating-item_rating">
-                <div className="rating-item_rating_text">
-                  <div className="rating-item_rating_tertiary-text">
-                    <p>Gameplay:</p>
-                    <p>Free To Play:</p>
-                  </div>
-                  <div className="rating-item_rating_secondary-text">
+              <div className="shared-list-item_rating">
+                    <p className="shared-list_gameplay">Gameplay:</p>
+                    <p className="shared-list_f2p">Free To Play:</p>
                     {rating.game.averageRating ? (
-                      <p>{rating.game.averageRating.toFixed(1)}/10</p>
+                      <p className="shared-list_gameplay_number">{rating.game.averageRating.toFixed(1)}/10</p>
                     ) : (
-                      <p>TBA/10</p>
+                      <p className="shared-list_gameplay_number">TBA/10</p>
                     )}
                     {rating.game.averageF2P ? (
-                      <p>{rating.game.averageF2P.toFixed(1)}/10</p>
+                      <p className="shared-list_f2p_number">{rating.game.averageF2P.toFixed(1)}/10</p>
                     ) : (
-                      <p>TBA/10</p>
+                      <p className="shared-list_f2p_number">TBA/10</p>
                     )}
-                  </div>
-                </div>
-                <div className="detailed-list_buttons">
+                <div className="detailed-list_buttons" id="shared-list_delete">
                   <button
                     className="primary-button"
                     onClick={() => {
